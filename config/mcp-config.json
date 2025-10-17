@@ -1,0 +1,19 @@
+{
+  "_comment": "PubMed Data Server Configuration - 简化版MCP配置",
+  "mcpServers": {
+    "pubmed-data-server": {
+      "disabled": false,
+      "timeout": 180,
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "./src/index.js"
+      ],
+      "cwd": ".",
+      "env": {
+        "PUBMED_API_KEY": "your_pubmed_api_key_here",
+        "PUBMED_EMAIL": "your_email@example.com"
+      }
+    }
+  }
+}

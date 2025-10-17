@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "pubmed-llm-server": {
+      "command": "node",
+      "args": ["/home/shpc_101170/mcp-pubmed-server/src/index.js"],
+      "cwd": "/home/shpc_101170/mcp-pubmed-server",
+      "env": {
+        "PUBMED_API_KEY": "${PUBMED_API_KEY}",
+        "PUBMED_EMAIL": "${PUBMED_EMAIL}",
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+      }
+    }
+  }
+}
