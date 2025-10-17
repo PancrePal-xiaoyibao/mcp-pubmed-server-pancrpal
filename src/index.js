@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import 'dotenv/config';
 
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -7,6 +8,12 @@ import fetch from "node-fetch";
 
 const PUBMED_BASE_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils';
 const RATE_LIMIT_DELAY = 334; // PubMed rate limit: 3 requests per second
+// Abstract truncation modes (env-driven)
+const ABSTRACT_MODE = (process.env.ABSTRACT_MODE || 'quick').toLowerCase() === 'deep' ? 'deep' : 'quick';
+const ABSTRACT_MAX_CHARS = ABSTRACT_MODE === 'deep' ? 6000 : 1500;
+const ABSTRACT_MODE_NOTE = ABSTRACT_MODE === 'deep'
+    ? 'Deep mode: up to 6000 chars per abstract. Requires large model context (>=120k tokens recommended for batch usage).'
+    : 'Quick mode: up to 1500 chars per abstract (may be incomplete). Optimized for fast retrieval.';
 
 class PubMedDataServer {
     constructor() {
@@ -386,7 +393,7 @@ class PubMedDataServer {
             };
 
             if (article.abstract) {
-                structured.abstract = this.truncateText(article.abstract, 1500);
+                structured.abstract = this.truncateText(article.abstract, ABSTRACT_MAX_CHARS);
                 structured.key_points = this.extractKeyPoints(article.abstract);
             }
 
@@ -693,6 +700,7 @@ class PubMedDataServer {
         const transport = new StdioServerTransport();
         await this.server.connect(transport);
         console.error("PubMed Data Server v2.0 running on stdio");
+        console.error(`[AbstractMode] ${ABSTRACT_MODE} (max_chars=${ABSTRACT_MAX_CHARS}) - ${ABSTRACT_MODE_NOTE}`);
     }
 }
 

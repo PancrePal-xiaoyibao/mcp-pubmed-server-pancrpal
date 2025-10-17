@@ -58,6 +58,17 @@ node src/index.js
 # 看到 "PubMed Data Server v2.0 running on stdio" 表示成功
 ```
 
+> 环境变量说明：项目已内置 `.env` 自动加载（使用 dotenv）。在项目根目录创建 `.env`，例如：
+
+```env
+PUBMED_API_KEY=你的NCBI_API密钥
+PUBMED_EMAIL=你的邮箱地址
+# 摘要截断模式：quick | deep
+# quick：1500 字符（快速检索，可能不包含完整摘要）
+# deep：6000 字符（深度检索；建议模型上下文窗口 ≥ 120k tokens）
+ABSTRACT_MODE=quick
+```
+
 ### 步骤五：MCP客户端配置
 
 #### Cline配置：
@@ -158,7 +169,9 @@ node src/index.js
 - **LLM优化格式**：智能截断、关键点提取、关键词组织
 
 ### 🧠 上下文窗口管理
-- 自动截断过长摘要（1500字符）
+- 摘要截断模式（通过环境变量配置）：
+  - QUICK 模式：1500 字符，快速检索，可能不包含完整摘要
+  - DEEP 模式：6000 字符，深度检索；建议模型上下文窗口 ≥ 120k tokens（批量查询时更稳妥）
 - 关键点提取（5个要点）
 - 结构化信息分层
 
