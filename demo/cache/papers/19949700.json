@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "pmid": "19949700",
+  "timestamp": 1761140011488,
+  "data": {
+    "pmid": "19949700",
+    "title": "mRNA-sequencing whole transcriptome analysis of a single cell on the SOLiD system.",
+    "authors": [
+      "Lao KQ",
+      "Tang F",
+      "Barbacioru C",
+      "Wang Y",
+      "Nordman E",
+      "Lee C",
+      "Xu N",
+      "Wang X",
+      "Tuch B",
+      "Bodeau J",
+      "Siddiqui A",
+      "Surani MA"
+    ],
+    "journal": "J Biomol Tech",
+    "publicationDate": "2009 Dec",
+    "volume": "20",
+    "issue": "5",
+    "pages": "266-71",
+    "abstract": "1. J Biomol Tech. 2009 Dec;20(5):266-71.\n\nmRNA-sequencing whole transcriptome analysis of a single cell on the SOLiD \nsystem.\n\nLao KQ(1), Tang F, Barbacioru C, Wang Y, Nordman E, Lee C, Xu N, Wang X, Tuch B, \nBodeau J, Siddiqui A, Surani MA.\n\nAuthor information:\n(1)Applied Biosystems, a division of Life Technologies Corporation, Genetic \nAnalysis Business Unit, Foster City, California 94404, USA. kai.lao@lifetech.com\n\nWe have developed a sequencing-based gene expression profiling assay at \nsingle-cell resolution by combining a modified single-cell whole transcriptome \namplification method with the next generation sequencing technique, the SOLiD \nsystem. Using this assay, we have shown that blastomeres in a four-cell stage \nembryo have similar gene expression, which is compatible with the fact that they \nhave similar developmental potential. We proved that compared with cDNA \nmicroarray technique, our single-cell cDNA SOLiD sequencing assay can detect \nexpression of thousands of more genes. Moreover, for the genes detected by \nmicroarray and SOLiD sequencing, our assay detected new transcript variants for \na large proportion of them, which confirms unambiguously at single-cell \nresolution that the transcriptome complexity is higher than expected \ntraditionally. Finally, by using our assay to Dicer knockout (KO) and Ago2 KO \noocytes, we showed that a significant amount of transposons were up-regulated \nabnormally in Dicer/Ago2 KO mature oocytes compared with wild-type controls.\n\nPMCID: PMC2777344\nPMID: 19949700 [Indexed for MEDLINE]",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19949700/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "pmid": "41040235",
+  "timestamp": 1761140149478,
+  "data": {
+    "pmid": "41040235",
+    "title": "Establishing a continuum of cell types in the visual cortex.",
+    "authors": [
+      "Yoo J",
+      "Xie F",
+      "Butrus S",
+      "Xu R",
+      "Tan Z",
+      "Gorzek R",
+      "Mirshahidi P",
+      "Tring E",
+      "Suresh S",
+      "Kim J",
+      "Fleishman G",
+      "Tan L",
+      "Ringach D",
+      "Trachtenberg J",
+      "Xu X",
+      "Lawrence Zipursky S",
+      "Shekhar K",
+      "Jain S"
+    ],
+    "journal": "bioRxiv",
+    "publicationDate": "2025 Sep 22",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "abstract": "1. bioRxiv [Preprint]. 2025 Sep 22:2025.09.22.677893. doi: \n10.1101/2025.09.22.677893.\n\nEstablishing a continuum of cell types in the visual cortex.\n\nYoo J(1), Xie F(1), Butrus S(2), Xu R(1), Tan Z(3), Gorzek R(4), Mirshahidi \nP(1), Tring E(4), Suresh S(5), Kim J(5), Fleishman G(6), Tan L(1)(7)(8), Ringach \nD(4), Trachtenberg J(4), Xu X(3), Lawrence Zipursky S(1), Shekhar \nK(2)(9)(10)(11), Jain S(1)(5).\n\nAuthor information:\n(1)Department of Biological Chemistry, University of California, Los Angeles, \nUSA.\n(2)Department of Chemical and Biomolecular Engineering, University of \nCalifornia, Berkeley, USA.\n(3)Department of Anatomy & Neurobiology, School of Medicine, University of \nCalifornia, Irvine, USA.\n(4)Department of Neurobiology, University of California, Los Angeles, USA.\n(5)School of Biological Sciences, Georgia Institute of Technology, Atlanta, USA.\n(6)Janelia Research Campus, Ashburn, USA.\n(7)Shenzhen Key Laboratory of Neuropsychiatric Modulation, Shenzhen-Hong Kong \nInstitute of Brain Science, Shenzhen Institutes of Advanced Technology, Chinese \nAcademy of Sciences, Shenzhen, China.\n(8)Guangdong Provincial Key Laboratory of Brain Connectome and Behavior, the \nBrain Cognition and Brain Disease Institute, Shenzhen Institutes of Advanced \nTechnology, Chinese Academy of Sciences, Shenzhen, China.\n(9)Helen Wills Neuroscience Institute, University of California, Berkeley, USA.\n(10)Vision Sciences Graduate Group, University of California, Berkeley, USA.\n(11)Biological Systems and Engineering Division, Lawrence Berkeley National \nLaboratory, Berkeley, USA.\n\nThe mammalian cerebral cortex is composed of neurons whose properties vary in a \ncontinuous fashion rather than falling into discrete cell types. In the mouse \nvisual cortex, excitatory neurons in layer 2 and 3 (L2/3) form such a continuum \nalong cortical depth, patterned by the graded expression of hundreds of genes. \nHere we sought to understand how this continuum develops and contributes to \ncortical wiring. Using single-nucleus multiomics (RNA- and ATAC-Seq) and spatial \ntranscriptomics, we show that the L2/3 continuum is established in two phases. \nDuring the first postnatal week, a genetically hardwired program establishes a \nprimitive continuum of cell identities spanning the depth of L2/3. The second \nprogram, promoted by visual experience, is later superimposed upon the \npreexisting continuum. This second phase is driven by activity-regulated \ntranscription factors that drive the L2/3 depth-dependent expression of genes \nlinked to synaptic function and plasticity. We show that neurons at different \npositions along the L2/3 continuum project preferentially to distinct higher \nvisual areas and that visual deprivation disrupts targeting to some higher \nvisual areas while sparing others. Thus, cortical continua emerge through a \nstepwise process in which genetic programs and sensory experience specify \nneuronal identity and sculpt intracortical wiring specificity.\n\nDOI: 10.1101/2025.09.22.677893\nPMCID: PMC12485764\nPMID: 41040235\n\nConflict of interest statement: Competing interests The authors declare no \ncompeting interests.",
+    "doi": "pii: 2025.09.22.677893. doi: 10.1101/2025.09.22.677893",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41040235/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

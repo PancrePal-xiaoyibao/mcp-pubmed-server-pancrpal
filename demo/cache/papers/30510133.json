@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "pmid": "30510133",
+  "timestamp": 1761140173041,
+  "data": {
+    "pmid": "30510133",
+    "title": "Advantages of Single-Nucleus over Single-Cell RNA Sequencing of Adult Kidney: Rare Cell Types and Novel Cell States Revealed in Fibrosis.",
+    "authors": [
+      "Wu H",
+      "Kirita Y",
+      "Donnelly EL",
+      "Humphreys BD"
+    ],
+    "journal": "J Am Soc Nephrol",
+    "publicationDate": "2019 Jan",
+    "volume": "30",
+    "issue": "1",
+    "pages": "23-32",
+    "abstract": "1. J Am Soc Nephrol. 2019 Jan;30(1):23-32. doi: 10.1681/ASN.2018090912. Epub 2018\n Dec 3.\n\nAdvantages of Single-Nucleus over Single-Cell RNA Sequencing of Adult Kidney: \nRare Cell Types and Novel Cell States Revealed in Fibrosis.\n\nWu H(1), Kirita Y(1), Donnelly EL(1), Humphreys BD(2)(3).\n\nAuthor information:\n(1)Division of Nephrology, Department of Medicine and.\n(2)Division of Nephrology, Department of Medicine and humphreysbd@wustl.edu.\n(3)Department of Developmental Biology, Washington University in St. Louis \nSchool of Medicine, St. Louis, Missouri.\n\nBACKGROUND: A challenge for single-cell genomic studies in kidney and other \nsolid tissues is generating a high-quality single-cell suspension that contains \nrare or difficult-to-dissociate cell types and is free of both RNA degradation \nand artifactual transcriptional stress responses.\nMETHODS: We compared single-cell RNA sequencing (scRNA-seq) using the DropSeq \nplatform with single-nucleus RNA sequencing (snRNA-seq) using sNuc-DropSeq, \nDroNc-seq, and 10X Chromium platforms on adult mouse kidney. We validated \nsnRNA-seq on fibrotic kidney from mice 14 days after unilateral ureteral \nobstruction (UUO) surgery.\nRESULTS: A total of 11,391 transcriptomes were generated in the comparison \nphase. We identified ten clusters in the scRNA-seq dataset, but glomerular cell \ntypes were absent, and one cluster consisted primarily of artifactual \ndissociation-induced stress response genes. By contrast, snRNA-seq from all \nthree platforms captured a diversity of kidney cell types that were not \nrepresented in the scRNA-seq dataset, including glomerular podocytes, mesangial \ncells, and endothelial cells. No stress response genes were detected. Our \nsnRNA-seq protocol yielded 20-fold more podocytes compared with published \nscRNA-seq datasets (2.4% versus 0.12%, respectively). Unexpectedly, single-cell \nand single-nucleus platforms had equivalent gene detection sensitivity. For \nvalidation, analysis of frozen day 14 UUO kidney revealed rare juxtaglomerular \ncells, novel activated proximal tubule and fibroblast cell states, and \npreviously unidentified tubulointerstitial signaling pathways.\nCONCLUSIONS: snRNA-seq achieves comparable gene detection to scRNA-seq in adult \nkidney, and it also has substantial advantages, including reduced dissociation \nbias, compatibility with frozen samples, elimination of dissociation-induced \ntranscriptional stress responses, and successful performance on inflamed \nfibrotic kidney.\n\nCopyright © 2019 by the American Society of Nephrology.\n\nDOI: 10.1681/ASN.2018090912\nPMCID: PMC6317600\nPMID: 30510133 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1681/ASN.2018090912",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30510133/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

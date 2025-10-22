@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "pmid": "39147582",
+  "timestamp": 1761140173082,
+  "data": {
+    "pmid": "39147582",
+    "title": "Benchmarking bulk and single-cell variant-calling approaches on Chromium scRNA-seq and scATAC-seq libraries.",
+    "authors": [
+      "Wiens M",
+      "Farahani H",
+      "Scott RW",
+      "Underhill TM",
+      "Bashashati A"
+    ],
+    "journal": "Genome Res",
+    "publicationDate": "2024 Sep 20",
+    "volume": "34",
+    "issue": "8",
+    "pages": "1196-1210",
+    "abstract": "1. Genome Res. 2024 Sep 20;34(8):1196-1210. doi: 10.1101/gr.277066.122.\n\nBenchmarking bulk and single-cell variant-calling approaches on Chromium \nscRNA-seq and scATAC-seq libraries.\n\nWiens M(1), Farahani H(1), Scott RW(1), Underhill TM(#)(1)(2), Bashashati \nA(#)(3)(4).\n\nAuthor information:\n(1)School of Biomedical Engineering, University of British Columbia, Vancouver, \nBritish Columbia V6T 2B9, Canada.\n(2)Department of Cellular & Physiological Sciences, University of British \nColumbia, Vancouver, British Columbia V6T 2A1, Canada.\n(3)School of Biomedical Engineering, University of British Columbia, Vancouver, \nBritish Columbia V6T 2B9, Canada; ali.bashashati@ubc.ca.\n(4)Department of Pathology & Laboratory Medicine, University of British \nColumbia, Vancouver, British Columbia V6T 1Z7, Canada.\n(#)Contributed equally\n\nSingle-cell sequencing methodologies such as scRNA-seq and scATAC-seq have \nbecome widespread and effective tools to interrogate tissue composition. \nIncreasingly, variant callers are being applied to these methodologies to \nresolve the genetic heterogeneity of a sample, especially in the case of \ndetecting the clonal architecture of a tumor. Typically, traditional bulk DNA \nvariant callers are applied to the pooled reads of a single-cell library to \ndetect candidate mutations. Recently, multiple studies have applied such callers \non reads from individual cells, with some citing the ability to detect rare \nvariants with higher sensitivity. Many studies apply these two approaches to the \nChromium (10x Genomics) scRNA-seq and scATAC-seq methodologies. However, \nChromium-based libraries may offer additional challenges to variant calling \ncompared with existing single-cell methodologies, raising questions regarding \nthe validity of variants obtained from such a workflow. To determine the merits \nand challenges of various variant-calling approaches on Chromium scRNA-seq and \nscATAC-seq libraries, we use sample libraries with matched bulk whole-genome \nsequencing to evaluate the performance of callers. We review caller performance, \nfinding that bulk callers applied on pooled reads significantly outperform \nindividual-cell approaches. We also evaluate variants unique to scRNA-seq and \nscATAC-seq methodologies, finding patterns of noise but also potential capture \nof RNA-editing events. Finally, we review the notion that variant calling at the \nsingle-cell level can detect rare somatic variants, providing empirical results \nthat suggest resolving such variants is infeasible in single-cell Chromium \nlibraries.\n\n© 2024 Wiens et al.; Published by Cold Spring Harbor Laboratory Press.\n\nDOI: 10.1101/gr.277066.122\nPMCID: PMC11444184\nPMID: 39147582 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1101/gr.277066.122",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39147582/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

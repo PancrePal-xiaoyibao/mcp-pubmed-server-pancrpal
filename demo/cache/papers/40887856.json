@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "pmid": "40887856",
+  "timestamp": 1761140149500,
+  "data": {
+    "pmid": "40887856",
+    "title": "Dissecting cross-lineage tumourigenesis under p53 inactivation through single-cell multi-omics and spatial transcriptomics.",
+    "authors": [
+      "Wang X",
+      "Mei Y",
+      "Wang X",
+      "Wu H",
+      "Wang R",
+      "Zhang P",
+      "Zhang G",
+      "Li J",
+      "Jiang M",
+      "Fang X",
+      "Ma L",
+      "Liao Y",
+      "Jia D",
+      "Niu H",
+      "Weigao E",
+      "Chen H",
+      "Yang L",
+      "Zhang S",
+      "Zhang T",
+      "Zhou Y",
+      "Zhang Q",
+      "Huang H",
+      "Ouyang H",
+      "Chen M",
+      "Liang T",
+      "Peng J",
+      "Wang J",
+      "Guo G",
+      "Han X"
+    ],
+    "journal": "Clin Transl Med",
+    "publicationDate": "2025 Sep",
+    "volume": "15",
+    "issue": "9",
+    "pages": "e70461",
+    "abstract": "1. Clin Transl Med. 2025 Sep;15(9):e70461. doi: 10.1002/ctm2.70461.\n\nDissecting cross-lineage tumourigenesis under p53 inactivation through \nsingle-cell multi-omics and spatial transcriptomics.\n\nWang X(1), Mei Y(1), Wang X(1), Wu H(1), Wang R(1), Zhang P(1)(2), Zhang G(1), \nLi J(1), Jiang M(3), Fang X(1), Ma L(1), Liao Y(1), Jia D(1), Niu H(1), Weigao \nE(1), Chen H(1)(3), Yang L(1), Zhang S(1), Zhang T(1), Zhou Y(4), Zhang Q(5), \nHuang H(1)(6), Ouyang H(2), Chen M(4), Liang T(5), Peng J(7), Wang J(1)(3), Guo \nG(1)(2)(3)(6), Han X(1).\n\nAuthor information:\n(1)Bone Marrow Transplantation Center of the First Affiliated Hospital and \nCenter for Stem Cell and Regenerative Medicine, Zhejiang University School of \nMedicine, Hangzhou, Zhejiang, China.\n(2)Zhejiang Provincial Key Lab for Tissue Engineering and Regenerative Medicine, \nDr. Li Dak Sum & Yip Yio Chin Center for Stem Cell and Regenerative Medicine, \nHangzhou, Zhejiang, China.\n(3)Liangzhu Laboratory, Zhejiang University Medical Center, Hangzhou, Zhejiang, \nChina.\n(4)College of Life Sciences, Zhejiang University, Hangzhou, Zhejiang, China.\n(5)Department of Hepatobiliary and Pancreatic Surgery, The First Affiliated \nHospital, School of Medicine, Zhejiang University, Hangzhou, Zhejiang, China.\n(6)Institute of Hematology, Zhejiang University, Hangzhou, Zhejiang, China.\n(7)MOE Key Laboratory for Molecular Animal Nutrition, College of Animal \nSciences, Zhejiang University, Hangzhou, Zhejiang, China.\n\nBACKGROUND: Tumour suppressor genes, exemplified by TP53 (encoding the human \np53), function as critical guardians against tumourigenesis. Germline \nTP53-inactivating mutations underlie Li-Fraumeni syndrome, a hereditary cancer \npredisposition disorder characterised by early-onset pan-tissue malignancies. \nHowever, the context-dependent tumour-suppressive mechanisms of p53 remain \nincompletely elucidated. This study aims to investigate the disruption of \ncellular homeostasis and tumourigenic mechanisms following p53 inactivation \nacross distinct cell lineages.\nMETHODS: Trp53 (encoding mouse p53) knockout mouse model was employed to study \nmolecular alterations under p53-deficient conditions. Multi-omics analyses - \nincluding single-cell transcriptomics, single-cell ATAC-seq, spatial \ntranscriptomics, whole genome sequencing, and CUT&Tag - were integrated to \nconstruct a Trp53 functional cell landscape. Deep learning-based gene network \nmodels were employed to reconstruct p53 regulatory networks and simulate in \nsilico perturbations caused by p53 loss.\nRESULTS: Our analyses revealed transitional dynamics in immune, stromal, and \nepithelial cells from normal physiology to p53-deficient states and subsequent \ntumourigenesis. These transitions implicated critical pathways such as cell \ncycle regulation, stress response, metabolic reprogramming, and immune \nmodulation, displaying both lineage-conserved and lineage-specific features. \nTumour-prone cell populations exhibiting elevated differentiation plasticity \nwere identified across lineages within tumourigenic trajectories. Spatial \ntranscriptomic profiling confirmed the emergence of thymic tumour-initiating \nT-cell clusters characterised by deterministic chromatin architectural \ndisruptions under p53-loss pressure. Notably, we uncovered a recurrent \nupregulation signature of ribosomal protein genes as an early pivotal molecular \nevent preceding malignant transformation in p53-deficient oncogenesis. Finally, \nwe decoded the p53 downstream regulatory network and computationally evaluated \nthe perturbation effects of genetic inactivation at single-cell resolution.\nCONCLUSIONS: Our results elucidate the multiscale consequences of p53 \ninactivation while providing valuable resources for understanding tumour \npredisposition associated with p53-inactivating mutations and developing \nclinical interception strategies.\nKEY POINTS: Construction of a Trp53 functional cell landscape utilising \nsingle-cell multi-omics and spatial omics technologies. Reconstruction of p53 \ndownstream regulatory relationships with lineage heterogeneity via machine \nlearning-based gene network modelling. Dissection of shared and lineage-specific \nfeatures during cross-lineage tumourigenesis under p53 deficiency.\n\n© 2025 The Author(s). Clinical and Translational Medicine published by John \nWiley & Sons Australia, Ltd on behalf of Shanghai Institute of Clinical \nBioinformatics.\n\nDOI: 10.1002/ctm2.70461\nPMCID: PMC12399789\nPMID: 40887856 [Indexed for MEDLINE]\n\nConflict of interest statement: The authors declare that they have no competing \ninterests.",
+    "doi": "doi: 10.1002/ctm2.70461",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40887856/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

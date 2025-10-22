@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "pmid": "38328105",
+  "timestamp": 1761140149623,
+  "data": {
+    "pmid": "38328105",
+    "title": "CHOIR improves significance-based detection of cell types and states from single-cell data.",
+    "authors": [
+      "Sant C",
+      "Mucke L",
+      "Corces MR"
+    ],
+    "journal": "bioRxiv",
+    "publicationDate": "2025 Feb 19",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "abstract": "1. bioRxiv [Preprint]. 2025 Feb 19:2024.01.18.576317. doi: \n10.1101/2024.01.18.576317.\n\nCHOIR improves significance-based detection of cell types and states from \nsingle-cell data.\n\nSant C(1)(2), Mucke L(1)(2)(3), Corces MR(1)(2)(3).\n\nAuthor information:\n(1)Gladstone Institute of Neurological Disease, Gladstone Institutes, San \nFrancisco, CA, USA.\n(2)Neuroscience Graduate Program, University of California, San Francisco, San \nFrancisco, CA 94158, USA.\n(3)Department of Neurology and Weill Institute for Neurosciences, University of \nCalifornia, San Francisco, San Francisco, CA 94158, USA.\n\nUpdate in\n    Nat Genet. 2025 May;57(5):1309-1319. doi: 10.1038/s41588-025-02148-8.\n\nClustering is a critical step in the analysis of single-cell data, as it enables \nthe discovery and characterization of putative cell types and states. However, \nmost popular clustering tools do not subject clustering results to statistical \ninference testing, leading to risks of overclustering or underclustering data \nand often resulting in ineffective identification of cell types with widely \ndiffering prevalence. To address these challenges, we present CHOIR (clustering \nhierarchy optimization by iterative random forests), which applies a framework \nof random forest classifiers and permutation tests across a hierarchical \nclustering tree to statistically determine which clusters represent distinct \npopulations. We demonstrate the enhanced performance of CHOIR through extensive \nbenchmarking against 14 existing clustering methods across 100 simulated and 4 \nreal single-cell RNA-seq, ATAC-seq, spatial transcriptomic, and multi-omic \ndatasets. CHOIR can be applied to any single-cell data type and provides a \nflexible, scalable, and robust solution to the important challenge of \nidentifying biologically relevant cell groupings within heterogeneous \nsingle-cell data.\n\nDOI: 10.1101/2024.01.18.576317\nPMCID: PMC10849522\nPMID: 38328105\n\nConflict of interest statement: COMPETING INTERESTS The authors declare no \ncompeting interests.",
+    "doi": "pii: 2024.01.18.576317. doi: 10.1101/2024.01.18.576317",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38328105/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

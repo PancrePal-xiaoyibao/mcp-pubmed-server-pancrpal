@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "pmid": "39567716",
+  "timestamp": 1761140149581,
+  "data": {
+    "pmid": "39567716",
+    "title": "Spatial multiomic landscape of the human placenta at molecular resolution.",
+    "authors": [
+      "Ounadjela JR",
+      "Zhang K",
+      "Kobayashi-Kirschvink KJ",
+      "Jin K",
+      "J C Russell A",
+      "Lackner AI",
+      "Callahan C",
+      "Viggiani F",
+      "Dey KK",
+      "Jagadeesh K",
+      "Maxian T",
+      "Prandstetter AM",
+      "Nadaf N",
+      "Gong Q",
+      "Raichur R",
+      "Zvezdov ML",
+      "Hui M",
+      "Simpson M",
+      "Liu X",
+      "Min W",
+      "Knöfler M",
+      "Chen F",
+      "Haider S",
+      "Shu J"
+    ],
+    "journal": "Nat Med",
+    "publicationDate": "2024 Dec",
+    "volume": "30",
+    "issue": "12",
+    "pages": "3495-3508",
+    "abstract": "1. Nat Med. 2024 Dec;30(12):3495-3508. doi: 10.1038/s41591-024-03073-9. Epub 2024\n Nov 20.\n\nSpatial multiomic landscape of the human placenta at molecular resolution.\n\nOunadjela JR(#)(1)(2)(3), Zhang K(#)(1), Kobayashi-Kirschvink KJ(#)(2)(4), Jin \nK(#)(1)(5)(6), J C Russell A(#)(2)(7), Lackner AI(#)(8), Callahan C(1), Viggiani \nF(1), Dey KK(9)(10), Jagadeesh K(2), Maxian T(11), Prandstetter AM(11), Nadaf \nN(2), Gong Q(2), Raichur R(2), Zvezdov ML(1)(12), Hui M(1), Simpson M(1), Liu \nX(13), Min W(13)(14), Knöfler M(11), Chen F(15)(16), Haider S(17), Shu \nJ(18)(19).\n\nAuthor information:\n(1)Cutaneous Biology Research Center, Massachusetts General Hospital, Harvard \nMedical School, Boston, MA, USA.\n(2)Klarman Cell Observatory, Broad Institute of MIT and Harvard, Cambridge, MA, \nUSA.\n(3)New York University Grossman School of Medicine, New York, NY, USA.\n(4)Laser Biomedical Research Center, G. R. Harrison Spectroscopy Laboratory, \nMassachusetts Institute of Technology, Cambridge, MA, USA.\n(5)Division of Biomedical Informatics, Cincinnati Children's Hospital Medical \nCenter, Cincinnati, OH, USA.\n(6)Department of Biomedical Informatics, University of Cincinnati, Cincinnati, \nOH, USA.\n(7)Department of Stem Cell and Regenerative Biology, Harvard University, \nCambridge, MA, USA.\n(8)Maternal-Fetal Immunology Group, Reproductive Biology Unit, Department of \nObstetrics and Gynecology, Medical University of Vienna, Vienna, Austria.\n(9)Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, \nNY, USA.\n(10)Gerstner Sloan Kettering Graduate School of Biomedical Sciences, Weill \nCornell Medicine, New York, NY, USA.\n(11)Placental Development Group, Reproductive Biology Unit, Department of \nObstetrics and Gynecology, Medical University of Vienna, Vienna, Austria.\n(12)Department of Genetics and Development, Columbia University Vagelos College \nof Physicians and Surgeons, New York, NY, USA.\n(13)Department of Chemistry, Columbia University, New York, NY, USA.\n(14)Kavli Institute for Brain Science, Columbia University, New York, NY, USA.\n(15)Klarman Cell Observatory, Broad Institute of MIT and Harvard, Cambridge, MA, \nUSA. chenf@broadinstitute.org.\n(16)Department of Stem Cell and Regenerative Biology, Harvard University, \nCambridge, MA, USA. chenf@broadinstitute.org.\n(17)Placental Development Group, Reproductive Biology Unit, Department of \nObstetrics and Gynecology, Medical University of Vienna, Vienna, Austria. \nsandra.haider@muv.ac.at.\n(18)Cutaneous Biology Research Center, Massachusetts General Hospital, Harvard \nMedical School, Boston, MA, USA. jian.shu@mgh.harvard.edu.\n(19)Klarman Cell Observatory, Broad Institute of MIT and Harvard, Cambridge, MA, \nUSA. jian.shu@mgh.harvard.edu.\n(#)Contributed equally\n\nSuccessful pregnancy relies directly on the placenta's complex, dynamic, \ngene-regulatory networks. Disruption of this vast collection of intercellular \nand intracellular programs leads to pregnancy complications and developmental \ndefects. In the present study, we generated a comprehensive, spatially resolved, \nmultimodal cell census elucidating the molecular architecture of the first \ntrimester human placenta. We utilized paired single-nucleus (sn)ATAC (assay for \ntransposase accessible chromatin) sequencing and RNA sequencing (RNA-seq), \nspatial snATAC-seq and RNA-seq, and in situ sequencing and hybridization mapping \nof transcriptomes at molecular resolution to spatially reconstruct the joint \nepigenomic and transcriptomic regulatory landscape. Paired analyses unraveled \nintricate tumor-like gene expression and transcription factor motif programs \npotentially sustaining the placenta in a hostile uterine environment; further \ninvestigation of gene-linked cis-regulatory elements revealed heightened \nregulatory complexity that may govern trophoblast differentiation and placental \ndisease risk. Complementary spatial mapping techniques decoded these programs \nwithin the placental villous core and extravillous trophoblast cell column \narchitecture while simultaneously revealing niche-establishing transcriptional \nelements and cell-cell communication. Finally, we computationally imputed \ngenome-wide, multiomic single-cell profiles and spatially characterized the \nplacental chromatin accessibility landscape. This spatially resolved, \nsingle-cell multiomic framework of the first trimester human placenta serves as \na blueprint for future studies on early placental development and pregnancy.\n\n© 2024. The Author(s), under exclusive licence to Springer Nature America, Inc.\n\nDOI: 10.1038/s41591-024-03073-9\nPMID: 39567716 [Indexed for MEDLINE]\n\nConflict of interest statement: Competing interests: A patent application \nrelated to this work about discovering novel immune modulators has been filed by \nthe Massachusetts General Hospital. J.S. is a scientific advisor for Johnson & \nJohnson. F.C. is an academic co-founder of Curio Bioscience and Doppler Bio, and \nan advisor to Amber Bio. F.C., A.J.C.R. and N.M.N. are listed as inventors on a \npatent application related to Slide-tags. The other authors declare no competing \ninterests.",
+    "doi": "doi: 10.1038/s41591-024-03073-9",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39567716/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

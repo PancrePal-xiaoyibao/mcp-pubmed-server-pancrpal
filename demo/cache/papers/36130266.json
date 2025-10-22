@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "pmid": "36130266",
+  "timestamp": 1761140149653,
+  "data": {
+    "pmid": "36130266",
+    "title": "HTCA: a database with an in-depth characterization of the single-cell human transcriptome.",
+    "authors": [
+      "Pan L",
+      "Shan S",
+      "Tremmel R",
+      "Li W",
+      "Liao Z",
+      "Shi H",
+      "Chen Q",
+      "Zhang X",
+      "Li X"
+    ],
+    "journal": "Nucleic Acids Res",
+    "publicationDate": "2023 Jan 6",
+    "volume": "51",
+    "issue": "D1",
+    "pages": "D1019-D1028",
+    "abstract": "1. Nucleic Acids Res. 2023 Jan 6;51(D1):D1019-D1028. doi: 10.1093/nar/gkac791.\n\nHTCA: a database with an in-depth characterization of the single-cell human \ntranscriptome.\n\nPan L(1)(2), Shan S(3), Tremmel R(4)(5), Li W(6), Liao Z(7)(8), Shi H(9), Chen \nQ(10), Zhang X(11), Li X(12).\n\nAuthor information:\n(1)Institute of Environmental Medicine, Karolinska Institutet, Solna 17165, \nSweden.\n(2)Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, \nSolna 17165, Sweden.\n(3)Department of Neurosurgery, Beijing Tiantan Hospital, Capital Medical \nUniversity, Beijing 100050, China.\n(4)Dr. Margarete Fischer-Bosch Institute of Clinical Pharmacology, \nStuttgart 70376, Germany.\n(5)University of Tuebingen, Tuebingen 72076, Germany.\n(6)School of Medicine, Yunnan University, Kunnan, Yunnan 650091, China.\n(7)Department of Microbiology, Tumor, and Cell Biology, Karolinska Institute, \nSolna 17177, Sweden.\n(8)School of Biological Sciences, Nanyang Technological University, 637 551, \nSingapore.\n(9)Department of Acupuncture, Guang'anmen Hospital, China Academy of Chinese \nMedical Sciences, Beijing 100029, China.\n(10)Graduate School, Beijing University of Chinese Medicine, Beijing 100029, \nChina.\n(11)Department of Physiology and Pathophysiology, School of Basic Medical \nSciences, Cheeloo College of Medicine, Shandong University, \nJinan, Shandong 250012, China.\n(12)Department of Medical Biochemistry and Biophysics, Karolinska Institutet, \nSolna 17165, Sweden.\n\nSingle-cell RNA-sequencing (scRNA-seq) is one of the most used single-cell omics \nin recent decades. The exponential growth of single-cell data has immense \npotential for large-scale integration and in-depth explorations that are more \nrepresentative of the study population. Efforts have been made to consolidate \npublished data, yet extensive characterization is still lacking. Many focused on \nraw-data database constructions while others concentrate mainly on gene \nexpression queries. Hereby, we present HTCA (www.htcatlas.org), an interactive \ndatabase constructed based on ∼2.3 million high-quality cells from ∼3000 \nscRNA-seq samples and comprised in-depth phenotype profiles of 19 healthy adult \nand matching fetal tissues. HTCA provides a one-stop interactive query to gene \nsignatures, transcription factor (TF) activities, TF motifs, receptor-ligand \ninteractions, enriched gene ontology (GO) terms, etc. across cell types in adult \nand fetal tissues. At the same time, HTCA encompasses single-cell splicing \nvariant profiles of 16 adult and fetal tissues, spatial transcriptomics profiles \nof 11 adult and fetal tissues, and single-cell ATAC-sequencing (scATAC-seq) \nprofiles of 27 adult and fetal tissues. Besides, HTCA provides online analysis \ntools to perform major steps in a typical scRNA-seq analysis. Altogether, HTCA \nallows real-time explorations of multi-omics adult and fetal phenotypic profiles \nand provides tools for a flexible scRNA-seq analysis.\n\n© The Author(s) 2022. Published by Oxford University Press on behalf of Nucleic \nAcids Research.\n\nDOI: 10.1093/nar/gkac791\nPMCID: PMC9825435\nPMID: 36130266 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1093/nar/gkac791",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36130266/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

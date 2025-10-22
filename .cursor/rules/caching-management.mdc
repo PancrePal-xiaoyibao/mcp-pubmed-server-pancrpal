@@ -1,0 +1,215 @@
+---
+globs: *.js
+description: 缓存管理和性能优化规范
+---
+
+# 缓存管理规范
+
+## 双层缓存架构
+
+### 1. 内存缓存 (Map对象)
+```javascript
+// 内存缓存配置
+this.cache = new Map();
+this.cacheTimeout = 5 * 60 * 1000; // 5分钟过期
+this.maxCacheSize = 100; // 最大100个条目
+```
+
+### 2. 文件缓存 (JSON文件)
+```javascript
+// 文件缓存配置
+const CACHE_DIR = path.join(process.cwd(), 'cache');
+const PAPER_CACHE_DIR = path.join(CACHE_DIR, 'papers');
+const PAPER_CACHE_EXPIRY = 30 * 24 * 60 * 60 * 1000; // 30天过期
+```
+
+## 缓存操作模式
+
+### 内存缓存操作
+```javascript
+// 获取缓存
+getFromCache(key) {
+    const cached = this.cache.get(key);
+    if (cached && Date.now() - cached.timestamp < this.cacheTimeout) {
+        this.cacheStats.hits++;
+        return cached.data;
+    }
+    this.cacheStats.misses++;
+    return null;
+}
+
+// 设置缓存
+setCache(key, data) {
+    // LRU淘汰策略
+    if (this.cache.size >= this.maxCacheSize) {
+        const oldestKey = this.cache.keys().next().value;
+        this.cache.delete(oldestKey);
+        this.cacheStats.evictions++;
+    }
+    
+    this.cache.set(key, {
+        data,
+        timestamp: Date.now()
+    });
+    this.cacheStats.sets++;
+}
+```
+
+### 文件缓存操作
+```javascript
+// 从文件缓存获取
+getPaperFromFileCache(pmid) {
+    const cachePath = this.getPaperCachePath(pmid);
+    if (!fs.existsSync(cachePath)) {
+        this.cacheStats.fileMisses++;
+        return null;
+    }
+    
+    const fileContent = fs.readFileSync(cachePath, 'utf8');
+    const cachedData = JSON.parse(fileContent);
+    
+    // 检查过期时间
+    if (Date.now() - cachedData.timestamp > PAPER_CACHE_EXPIRY) {
+        fs.unlinkSync(cachePath);
+        return null;
+    }
+    
+    this.cacheStats.fileHits++;
+    return cachedData.data;
+}
+
+// 保存到文件缓存
+setPaperToFileCache(pmid, data) {
+    const cachePath = this.getPaperCachePath(pmid);
+    const cacheData = {
+        version: CACHE_VERSION,
+        pmid: pmid,
+        timestamp: Date.now(),
+        data: data
+    };
+    
+    fs.writeFileSync(cachePath, JSON.stringify(cacheData, null, 2));
+    this.cacheStats.fileSets++;
+}
+```
+
+## 缓存统计和监控
+
+### 统计数据结构
+```javascript
+this.cacheStats = {
+    hits: 0,           // 内存缓存命中
+    misses: 0,          // 内存缓存未命中
+    sets: 0,            // 内存缓存设置
+    evictions: 0,       // 内存缓存淘汰
+    fileHits: 0,        // 文件缓存命中
+    fileMisses: 0,      // 文件缓存未命中
+    fileSets: 0         // 文件缓存设置
+};
+```
+
+### 缓存统计报告
+```javascript
+getCacheStats() {
+    const memoryHitRate = this.cacheStats.hits / (this.cacheStats.hits + this.cacheStats.misses) * 100;
+    const fileHitRate = this.cacheStats.fileHits / (this.cacheStats.fileHits + this.cacheStats.fileMisses) * 100;
+    
+    return {
+        memory: {
+            hits: this.cacheStats.hits,
+            misses: this.cacheStats.misses,
+            hitRate: memoryHitRate.toFixed(2) + '%',
+            currentSize: this.cache.size,
+            maxSize: this.maxCacheSize
+        },
+        file: {
+            hits: this.cacheStats.fileHits,
+            misses: this.cacheStats.fileMisses,
+            hitRate: fileHitRate.toFixed(2) + '%',
+            totalPapers: this.getFileCacheCount()
+        }
+    };
+}
+```
+
+## 缓存清理策略
+
+### 过期缓存清理
+```javascript
+// 清理过期内存缓存
+cleanExpiredCache() {
+    const now = Date.now();
+    let cleaned = 0;
+    for (const [key, value] of this.cache.entries()) {
+        if (now - value.timestamp >= this.cacheTimeout) {
+            this.cache.delete(key);
+            cleaned++;
+        }
+    }
+    return cleaned;
+}
+
+// 清理过期文件缓存
+cleanExpiredPaperCache() {
+    let cleaned = 0;
+    for (const [pmid, info] of Object.entries(indexData.papers)) {
+        const cachePath = this.getPaperCachePath(pmid);
+        if (fs.existsSync(cachePath)) {
+            const fileContent = fs.readFileSync(cachePath, 'utf8');
+            const cachedData = JSON.parse(fileContent);
+            
+            if (Date.now() - cachedData.timestamp > PAPER_CACHE_EXPIRY) {
+                fs.unlinkSync(cachePath);
+                delete indexData.papers[pmid];
+                cleaned++;
+            }
+        }
+    }
+    return cleaned;
+}
+```
+
+## 缓存键生成策略
+
+### 搜索缓存键
+```javascript
+getCacheKey(query, maxResults, daysBack, sortBy) {
+    return `${query}|${maxResults}|${daysBack}|${sortBy}`;
+}
+```
+
+### 论文缓存键
+```javascript
+getPaperCachePath(pmid) {
+    return path.join(PAPER_CACHE_DIR, `${pmid}.json`);
+}
+```
+
+## 缓存性能优化
+
+### 批量缓存检查
+```javascript
+// 批量检查文件缓存
+for (const id of ids) {
+    const cachedArticle = this.getPaperFromFileCache(id);
+    if (cachedArticle) {
+        articles.push(cachedArticle);
+    } else {
+        uncachedIds.push(id);
+    }
+}
+```
+
+### 缓存预热
+```javascript
+// 初始化缓存目录
+initCacheDirectories() {
+    if (!fs.existsSync(CACHE_DIR)) {
+        fs.mkdirSync(CACHE_DIR, { recursive: true });
+    }
+    
+    if (!fs.existsSync(PAPER_CACHE_DIR)) {
+        fs.mkdirSync(PAPER_CACHE_DIR, { recursive: true });
+    }
+}
+```

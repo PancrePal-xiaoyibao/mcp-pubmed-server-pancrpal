@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "pmid": "40178900",
+  "timestamp": 1761140011468,
+  "data": {
+    "pmid": "40178900",
+    "title": "Dual genetic tracing demonstrates the heterogeneous differentiation and function of neuromesodermal progenitors in vivo.",
+    "authors": [
+      "Jin H",
+      "Liu Z",
+      "Mou J",
+      "Tang M",
+      "Huang X",
+      "Liu K",
+      "Zhang Q",
+      "Lui KO",
+      "Zhou B"
+    ],
+    "journal": "Proc Natl Acad Sci U S A",
+    "publicationDate": "2025 Apr 8",
+    "volume": "122",
+    "issue": "14",
+    "pages": "e2402305122",
+    "abstract": "1. Proc Natl Acad Sci U S A. 2025 Apr 8;122(14):e2402305122. doi: \n10.1073/pnas.2402305122. Epub 2025 Apr 3.\n\nDual genetic tracing demonstrates the heterogeneous differentiation and function \nof neuromesodermal progenitors in vivo.\n\nJin H(#)(1), Liu Z(#)(1), Mou J(1), Tang M(1), Huang X(1), Liu K(2), Zhang Q(3), \nLui KO(4), Zhou B(1)(2)(3).\n\nAuthor information:\n(1)Chinese Academy of Sciences Center for Excellence in Molecuar Cell \nScience-Chinese University of Hong kong (CAS CEMCS-CUHK) Joint Laboratories, New \nCornerstone Science Laboratory, State Key Laboratory of Cell Biology, Shanghai \nInstitute of Biochemistry and Cell Biology, Center for Excellence in Molecular \nCell Science, Chinese Academy of Sciences, University of Chinese Academy of \nSciences, Shanghai 200031, China.\n(2)Key Laboratory of Systems Health Science of Zhejiang Province, School of Life \nScience, Hangzhou Institute for Advanced Study, University of Chinese Academy of \nSciences, Hangzhou 310024, China.\n(3)School of Life Science and Technology, ShanghaiTech University, Shanghai \n201210, China.\n(4)CAS CEMCS-CUHK Joint Laboratories, Department of Chemical Pathology, and Li \nKa Shing Institute of Health Sciences, Prince of Wales Hospital, The Chinese \nUniversity of Hong Kong, Hong Kong 999077, China.\n(#)Contributed equally\n\nIn recent decades, the traditional paradigm of three distinct germ layers formed \nduring gastrulation has been revised with the identification of neuromesodermal \nprogenitors (NMPs). These progenitors emerge during gastrulation and contribute \nto both the neural ectoderm, particularly the spinal cord, and the adjacent \nparaxial mesoderm [D. Henrique et al., Development 142, 2864-2875 (2015); R. J. \nGarriock et al., Development 142, 1628-1638 (2015); E. Tzouanacou et al., Dev. \nCell 17, 365-376 (2009)]. However, effective genetic tools for lineage tracing \nand functional assessments of NMPs in vivo are currently lacking. Here, we \ndeveloped a dual recombinase-mediated genetic system to specifically trace and \nablate Brachyury+Sox2+ NMPs. Our genetic tracing and single-cell RNA sequencing \nanalyses revealed that NMPs consist of three distinct unipotent and bipotent \nprogenitor populations that progressively differentiate into neural and \nmesodermal fates. Genetic depletion of NMPs demonstrated their critical role in \ntrunk and tail formation. This study provides in vivo genetic evidence \nsupporting the heterogeneity of NMPs in terms of cell fate determination and \ntheir functional roles in the developing embryo.\n\nDOI: 10.1073/pnas.2402305122\nPMCID: PMC12002027\nPMID: 40178900 [Indexed for MEDLINE]\n\nConflict of interest statement: Competing interests statement:The authors \ndeclare no competing interest.",
+    "doi": "doi: 10.1073/pnas.2402305122",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40178900/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}
