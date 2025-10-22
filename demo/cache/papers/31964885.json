@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "pmid": "31964885",
+  "timestamp": 1761142654807,
+  "data": {
+    "pmid": "31964885",
+    "title": "Haplotyping the Vitis collinear core genome with rhAmpSeq improves marker transferability in a diverse genus.",
+    "authors": [
+      "Zou C",
+      "Karn A",
+      "Reisch B",
+      "Nguyen A",
+      "Sun Y",
+      "Bao Y",
+      "Campbell MS",
+      "Church D",
+      "Williams S",
+      "Xu X",
+      "Ledbetter CA",
+      "Patel S",
+      "Fennell A",
+      "Glaubitz JC",
+      "Clark M",
+      "Ware D",
+      "Londo JP",
+      "Sun Q",
+      "Cadle-Davidson L"
+    ],
+    "journal": "Nat Commun",
+    "publicationDate": "2020 Jan 21",
+    "volume": "11",
+    "issue": "1",
+    "pages": "413",
+    "abstract": "1. Nat Commun. 2020 Jan 21;11(1):413. doi: 10.1038/s41467-019-14280-1.\n\nHaplotyping the Vitis collinear core genome with rhAmpSeq improves marker \ntransferability in a diverse genus.\n\nZou C(#)(1), Karn A(#)(2), Reisch B(2), Nguyen A(3), Sun Y(3), Bao Y(3), \nCampbell MS(4), Church D(4), Williams S(4), Xu X(5), Ledbetter CA(6), Patel \nS(7), Fennell A(7), Glaubitz JC(1), Clark M(8), Ware D(9)(10), Londo JP(5), Sun \nQ(1), Cadle-Davidson L(11).\n\nAuthor information:\n(1)BRC Bioinformatics Facility, Institute of Biotechnology, Cornell University, \nIthaca, NY, 14853, USA.\n(2)School of Integrative Plant Science, Cornell AgriTech, Cornell University, \nGeneva, NY, 14456, USA.\n(3)Integrated DNA Technologies, Redwood City, CA, 94063, USA.\n(4)10x Genomics, Inc., Pleasanton, CA, 94566, USA.\n(5)USDA-ARS, Grape Genetics Research Unit, Geneva, NY, 14456, USA.\n(6)USDA-ARS, Crop Diseases, Pests and Genetics Research, Parlier, CA, 93648, \nUSA.\n(7)Agronomy, Horticulture and Plant Science Department, South Dakota State \nUniversity, Brookings, SD, 57007, USA.\n(8)Department of Horticultural Science, University of Minnesota, Saint Paul, MN, \n55108, USA.\n(9)Cold Spring Harbor Laboratory, Cold Spring Harbor, NY, 11724, USA.\n(10)USDA-ARS, Robert W. Holley Center for Agriculture and Health, Ithaca, NY, \n14853, USA.\n(11)USDA-ARS, Grape Genetics Research Unit, Geneva, NY, 14456, USA. \nLance.CadleDavidson@ars.usda.gov.\n(#)Contributed equally\n\nTransferable DNA markers are essential for breeding and genetics. Grapevine \n(Vitis) breeders utilize disease resistance alleles from congeneric species ~20 \nmillion years divergent, but existing Vitis marker platforms have cross-species \ntransfer rates as low as 2%. Here, we apply a marker strategy targeting the \ninferred Vitis core genome. Incorporating seven linked-read de novo assemblies \nand three existing assemblies, the Vitis collinear core genome is estimated to \nconverge at 39.8 Mb (8.67% of the genome). Adding shotgun genome sequences from \n40 accessions enables identification of conserved core PCR primer binding sites \nflanking polymorphic haplotypes with high information content. From these target \nregions, we develop 2,000 rhAmpSeq markers as a PCR multiplex and validate the \npanel in four biparental populations spanning the diversity of the Vitis genus, \nshowing transferability increases to 91.9%. This marker development strategy \nshould be widely applicable for genetic studies in many taxa, particularly those \n~20 million years divergent.\n\nDOI: 10.1038/s41467-019-14280-1\nPMCID: PMC6972940\nPMID: 31964885 [Indexed for MEDLINE]\n\nConflict of interest statement: Authors affiliated with Integrated DNA \nTechnologies, Inc. (IDT, A.N., Y.S., and Y.B.) or 10X Genomics (M.S.C., D.C., \nS.W) are employees receiving compensation in the form of salary from their \nrespective company. Those companies offer equipment and/or reagents for sale \nsimilar to those described in the manuscript. All other authors declare no \ncompeting interests.",
+    "doi": "doi: 10.1038/s41467-019-14280-1",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31964885/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

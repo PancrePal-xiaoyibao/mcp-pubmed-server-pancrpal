@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "pmid": "38862494",
+  "timestamp": 1761140149591,
+  "data": {
+    "pmid": "38862494",
+    "title": "Spatial multi-omics of human skin reveals KRAS and inflammatory responses to spaceflight.",
+    "authors": [
+      "Park J",
+      "Overbey EG",
+      "Narayanan SA",
+      "Kim J",
+      "Tierney BT",
+      "Damle N",
+      "Najjar D",
+      "Ryon KA",
+      "Proszynski J",
+      "Kleinman A",
+      "Hirschberg JW",
+      "MacKay M",
+      "Afshin EE",
+      "Granstein R",
+      "Gurvitch J",
+      "Hudson BM",
+      "Rininger A",
+      "Mullane S",
+      "Church SE",
+      "Meydan C",
+      "Church G",
+      "Beheshti A",
+      "Mateus J",
+      "Mason CE"
+    ],
+    "journal": "Nat Commun",
+    "publicationDate": "2024 Jun 11",
+    "volume": "15",
+    "issue": "1",
+    "pages": "4773",
+    "abstract": "1. Nat Commun. 2024 Jun 11;15(1):4773. doi: 10.1038/s41467-024-48625-2.\n\nSpatial multi-omics of human skin reveals KRAS and inflammatory responses to \nspaceflight.\n\nPark J(1)(2), Overbey EG(1)(2), Narayanan SA(3), Kim J(1)(2), Tierney BT(1)(2), \nDamle N(1), Najjar D(1), Ryon KA(1), Proszynski J(1), Kleinman A(1), Hirschberg \nJW(1), MacKay M(1), Afshin EE(1), Granstein R(4), Gurvitch J(1), Hudson BM(5), \nRininger A(5), Mullane S(6), Church SE(5), Meydan C(1)(2), Church G(7)(8), \nBeheshti A(9)(10), Mateus J(6), Mason CE(11)(12)(13).\n\nAuthor information:\n(1)Department of Physiology, Biophysics and Systems Biology, Weill Cornell \nMedicine, New York, NY, USA.\n(2)The HRH Prince Alwaleed Bin Talal Bin Abdulaziz Alsaud Institute for \nComputational Biomedicine, Weill Cornell Medicine, New York, NY, USA.\n(3)Department of Nutrition & Integrative Physiology, Florida State University, \nTallahassee, FL, USA.\n(4)Department of Dermatology, Weill Cornell Medicine, New York, NY, USA.\n(5)NanoString Technologies, Inc., Seattle, WA, USA.\n(6)SpaceX, Hawthorne, CA, USA.\n(7)Department of Genetics, Harvard Medical School, Boston, MA, 02115, USA.\n(8)Wyss Institute for Biologically Inspired Engineering, Harvard University, \nBoston, MA, USA.\n(9)Stanley Center for Psychiatric Research, Broad Institute of MIT and Harvard, \nCambridge, MA, USA.\n(10)Blue Marble Space Institute of Science, Space Biosciences Division, NASA \nAmes Research Center, Moffett Field, CA, USA.\n(11)Department of Physiology, Biophysics and Systems Biology, Weill Cornell \nMedicine, New York, NY, USA. chm2042@med.cornell.edu.\n(12)The HRH Prince Alwaleed Bin Talal Bin Abdulaziz Alsaud Institute for \nComputational Biomedicine, Weill Cornell Medicine, New York, NY, USA. \nchm2042@med.cornell.edu.\n(13)The Feil Family Brain and Mind Research Institute, Weill Cornell Medicine, \nNew York, NY, USA. chm2042@med.cornell.edu.\n\nSpaceflight can change metabolic, immunological, and biological homeostasis and \ncause skin rashes and irritation, yet the molecular basis remains unclear. To \ninvestigate the impact of short-duration spaceflight on the skin, we conducted \nskin biopsies on the Inspiration4 crew members before (L-44) and after (R + 1) \nflight. Leveraging multi-omics assays including GeoMx™ Digital Spatial Profiler, \nsingle-cell RNA/ATAC-seq, and metagenomics/metatranscriptomics, we assessed \nspatial gene expressions and associated microbial and immune changes across 95 \nskin regions in four compartments: outer epidermis, inner epidermis, outer \ndermis, and vasculature. Post-flight samples showed significant up-regulation of \ngenes related to inflammation and KRAS signaling across all skin regions. These \nspaceflight-associated changes mapped to specific cellular responses, including \naltered interferon responses, DNA damage, epithelial barrier disruptions, T-cell \nmigration, and hindered regeneration were located primarily in outer tissue \ncompartments. We also linked epithelial disruption to microbial shifts in skin \nswab and immune cell activity to PBMC single-cell data from the same crew and \ntimepoints. Our findings present the inaugural collection and examination of \nastronaut skin, offering insights for future space missions and response \ncountermeasures.\n\n© 2024. The Author(s).\n\nDOI: 10.1038/s41467-024-48625-2\nPMCID: PMC11166909\nPMID: 38862494 [Indexed for MEDLINE]\n\nConflict of interest statement: C.E.M. is a scientific advisor of NanoString \nInc. A.R., B.M.H., and S.E.C. are employees of NanoString Technologies, and J.M. \nand S.M. are employees of SpaceX. The remaining authors declare no competing or \nrelevant interests.",
+    "doi": "doi: 10.1038/s41467-024-48625-2",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38862494/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "pmid": "40920823",
+  "timestamp": 1761140149479,
+  "data": {
+    "pmid": "40920823",
+    "title": "OmnibusX: A unified platform for accessible multi-omics analysis.",
+    "authors": [
+      "Truong L",
+      "Truong T",
+      "Nguyen H"
+    ],
+    "journal": "PLoS Comput Biol",
+    "publicationDate": "2025 Sep",
+    "volume": "21",
+    "issue": "9",
+    "pages": "e1013480",
+    "abstract": "1. PLoS Comput Biol. 2025 Sep 8;21(9):e1013480. doi:\n10.1371/journal.pcbi.1013480.  eCollection 2025 Sep.\n\nOmnibusX: A unified platform for accessible multi-omics analysis.\n\nTruong L(1), Truong T(1), Nguyen H(1).\n\nAuthor information:\n(1)OmnibusXLab, OmnibusX Company Limited, Ho Chi Minh City, Vietnam.\n\nOmnibusX is an integrated, privacy-centric platform that enables code-free \nmulti-omics data analysis by bridging computational methodologies with \nuser-friendly interfaces. Designed to overcome challenges posed by fragmented \nanalytical tools and high computational barriers, OmnibusX consolidates \nworkflows for diverse technologies - including bulk RNA-seq, single-cell \nRNA-seq, single-cell ATAC-seq, and spatial transcriptomics - into a single, \ncohesive application. The application integrates established open-source tools \nsuch as Scanpy, DESeq2, SciPy, and scikit-learn into transparent, reproducible \npipelines, offering users control over analytical parameters. Additionally, \nOmnibusX features proprietary modules, including a highly accurate cell-type \nprediction engine and an interactive plotting editor for generating \npublication-quality visualizations. Available as a standalone desktop \napplication and an enterprise edition for centralized server deployment, \nOmnibusX ensures all data processing is conducted locally, eliminating external \ndata transfer and usage tracking. By lowering technical barriers and enhancing \nreproducibility, OmnibusX aims to accelerate biological discovery and foster \nrobust, data-driven collaborations. A fully documented trial version is \naccessible at: https://omnibusx.com/apps.\n\nCopyright: © 2025 Truong et al. This is an open access article distributed under \nthe terms of the Creative Commons Attribution License, which permits \nunrestricted use, distribution, and reproduction in any medium, provided the \noriginal author and source are credited.\n\nDOI: 10.1371/journal.pcbi.1013480\nPMCID: PMC12431643\nPMID: 40920823 [Indexed for MEDLINE]\n\nConflict of interest statement: The authors have declared that no competing \ninterests exist.",
+    "doi": "doi: 10.1371/journal.pcbi.1013480",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40920823/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "pmid": "40399382",
+  "timestamp": 1761140149540,
+  "data": {
+    "pmid": "40399382",
+    "title": "Multiomic analysis of human kidney disease identifies a tractable inflammatory and pro-fibrotic tubular cell phenotype.",
+    "authors": [
+      "Reck M",
+      "Baird DP",
+      "Veizades S",
+      "Sutherland C",
+      "Bell RMB",
+      "Hur H",
+      "Cairns C",
+      "Janas PP",
+      "Campbell R",
+      "Nam A",
+      "Yang W",
+      "Schurman N",
+      "Williams C",
+      "O'Sullivan E",
+      "Beniazza M",
+      "Corsinotti A",
+      "Bellamy C",
+      "Hughes J",
+      "Laird A",
+      "Denby L",
+      "Chandra T",
+      "Ferenbach DA",
+      "Conway BR"
+    ],
+    "journal": "Nat Commun",
+    "publicationDate": "2025 May 22",
+    "volume": "16",
+    "issue": "1",
+    "pages": "4745",
+    "abstract": "1. Nat Commun. 2025 May 22;16(1):4745. doi: 10.1038/s41467-025-59997-4.\n\nMultiomic analysis of human kidney disease identifies a tractable inflammatory \nand pro-fibrotic tubular cell phenotype.\n\nReck M(#)(1), Baird DP(#)(2), Veizades S(1)(3), Sutherland C(1), Bell RMB(1), \nHur H(1), Cairns C(1), Janas PP(2), Campbell R(2), Nam A(4), Yang W(4), Schurman \nN(4), Williams C(4), O'Sullivan E(5)(6), Beniazza M(7), Corsinotti A(7), Bellamy \nC(2), Hughes J(2), Laird A(8)(9), Denby L(1), Chandra T(10)(11)(12)(13), \nFerenbach DA(2), Conway BR(14).\n\nAuthor information:\n(1)Centre for Cardiovascular Science, University of Edinburgh, Edinburgh, UK.\n(2)Centre for Inflammation Research, University of Edinburgh, Edinburgh, UK.\n(3)Stanford Cardiovascular Institute, Stanford University, Stanford, CA, USA.\n(4)Bruker Spatial Biology, Seattle, WA, USA.\n(5)Institute of Molecular Bioscience, University of Queensland, Brisbane, QLD, \nAustralia.\n(6)Kidney Health Service, Metro North Hospital and Health Service, Brisbane, \nQLD, Australia.\n(7)Institute for Regeneration and Repair, University of Edinburgh, Edinburgh, \nUK.\n(8)Institute of Genetics and Cancer, University of Edinburgh, Edinburgh, UK.\n(9)Department of Urology, NHS Lothian, Edinburgh, UK.\n(10)MRC Human Genetics Unit, University of Edinburgh, Edinburgh, UK.\n(11)Robert and Arlene Kogod Center on Aging, Mayo Clinic, Rochester, MN, USA.\n(12)Department of Biochemistry and Molecular Biology, Mayo Clinic, Rochester, \nMN, USA.\n(13)Department of Quantitative Health Sciences, Mayo Clinic, Rochester, MN, USA.\n(14)Centre for Cardiovascular Science, University of Edinburgh, Edinburgh, UK. \nbryan.conway@ed.ac.uk.\n(#)Contributed equally\n\nMaladaptive proximal tubular (PT) epithelial cells have been implicated in \nprogression of chronic kidney disease (CKD), however the complexity of \nepithelial cell states within the fibrotic niche remains incompletely \nunderstood. Hence, we integrated snRNA and ATAC-seq with high-plex single-cell \nmolecular imaging to generate a spatially-revolved multiomic atlas of human \nkidney disease. We demonstrate that in injured kidneys, a subset of \nHAVCR1+VCAM1+ PT cells acquired an inflammatory phenotype, upregulating genes \nencoding chemokines, pro-fibrotic and senescence-associated proteins and \nadhesion molecules including ICAM1. Spatial transcriptomic and \nmultiplex-immunofluorescence determined that specifically these VCAM1+ICAM1+ \ninflammatory PT cells localised to the fibrotic niche. Ligand-receptor analysis \nhighlighted paracrine signaling from inflammatory PT cells mediating leucocyte \nrecruitment and myofibroblast activation. Loss of HNF4α and activation of NF-κβ \nand AP-1 transcription factors epigenetically imprinted the inflammatory \nphenotype. Targeting inflammatory tubular cells by administering an AP-1 \ninhibitor or senolytic agent ameliorated inflammation and fibrosis in murine \nmodels of kidney injury, hence these cells may be a tractable target in CKD.\n\n© 2025. The Author(s).\n\nDOI: 10.1038/s41467-025-59997-4\nPMCID: PMC12095627\nPMID: 40399382 [Indexed for MEDLINE]\n\nConflict of interest statement: Competing interests: A.N., W.Y., N.S., C.W. are \ncurrent or previous employees and shareholders of NanoString Technologies, now \nBruker Spatial Biology. The remaining authors declare no competing interests.",
+    "doi": "doi: 10.1038/s41467-025-59997-4",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40399382/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

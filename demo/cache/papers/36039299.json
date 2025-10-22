@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "pmid": "36039299",
+  "timestamp": 1761140149663,
+  "data": {
+    "pmid": "36039299",
+    "title": "Integrative analysis of spatial transcriptome with single-cell transcriptome and single-cell epigenome in mouse lungs after immunization.",
+    "authors": [
+      "Xu Z",
+      "Wang X",
+      "Fan L",
+      "Wang F",
+      "Lin B",
+      "Wang J",
+      "Trevejo-Nuñez G",
+      "Chen W",
+      "Chen K"
+    ],
+    "journal": "iScience",
+    "publicationDate": "2022 Sep 16",
+    "volume": "25",
+    "issue": "9",
+    "pages": "104900",
+    "abstract": "1. iScience. 2022 Aug 9;25(9):104900. doi: 10.1016/j.isci.2022.104900.\neCollection  2022 Sep 16.\n\nIntegrative analysis of spatial transcriptome with single-cell transcriptome and \nsingle-cell epigenome in mouse lungs after immunization.\n\nXu Z(1)(2), Wang X(3), Fan L(4), Wang F(4), Lin B(4), Wang J(3), Trevejo-Nuñez \nG(4), Chen W(1)(3), Chen K(4).\n\nAuthor information:\n(1)Department of Pediatrics, University of Pittsburgh, Pittsburgh, PA, USA.\n(2)School of Medicine, Tsinghua University, Beijing, China.\n(3)Department of Biostatistics, University of Pittsburgh, Pittsburgh, PA, USA.\n(4)Department of Medicine, University of Pittsburgh, Pittsburgh, PA, USA.\n\nUnderstanding lung immunity requires an unbiased profiling of tissue-resident \nT cells at their precise anatomical locations within the lung, but such \ninformation has not been characterized in the immunized mouse model. In this \npilot study, using 10x Genomics Chromium and Visium platform, we performed an \nintegrative analysis of spatial transcriptome with single-cell RNA-seq and \nsingle-cell ATAC-seq on lung cells from mice after immunization using a \nwell-established Klebsiella pneumoniae infection model. We built an optimized \ndeconvolution pipeline to accurately decipher specific cell-type compositions by \nanatomic location. We discovered that combining scATAC-seq and scRNA-seq data \nmay provide more robust cell-type identification, especially for \nlineage-specific T helper cells. Combining all three modalities, we observed a \ndynamic change in the location of T helper cells as well as their corresponding \nchemokines. In summary, our proof-of-principle study demonstrated the power and \npotential of single-cell multi-omics analysis to uncover spatial- and \ncell-type-dependent mechanisms of lung immunity.\n\n© 2022 The Authors.\n\nDOI: 10.1016/j.isci.2022.104900\nPMCID: PMC9418911\nPMID: 36039299\n\nConflict of interest statement: The authors declare no competing interests.",
+    "doi": "doi: 10.1016/j.isci.2022.104900",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36039299/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

@@ -1,0 +1,146 @@
+---
+globs: *.js
+description: MCP服务器开发规范和模式
+---
+
+# MCP服务器开发规范
+
+## MCP服务器架构模式
+
+### 1. 服务器初始化
+```javascript
+// 标准MCP服务器初始化模式
+this.server = new Server(
+    {
+        name: "pubmed-data-server",
+        version: "2.0.0",
+    },
+    {
+        capabilities: {
+            tools: {},
+        },
+    }
+);
+```
+
+### 2. 工具定义模式
+```javascript
+// 工具定义必须包含完整schema
+{
+    name: "tool_name",
+    description: "工具描述，说明用途和适用场景",
+    inputSchema: {
+        type: "object",
+        properties: {
+            param_name: {
+                type: "string",
+                description: "参数描述",
+                default: "默认值"
+            }
+        },
+        required: ["必需参数"]
+    }
+}
+```
+
+### 3. 请求处理模式
+```javascript
+// 标准工具调用处理
+this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+    const { name, arguments: args } = request.params;
+    
+    try {
+        switch (name) {
+            case "tool_name":
+                return await this.handleToolName(args);
+            default:
+                throw new Error(`Unknown tool: ${name}`);
+        }
+    } catch (error) {
+        console.error(`Error handling ${name}:`, error);
+        return {
+            content: [{
+                type: "text",
+                text: `Error: ${error.message}`
+            }]
+        };
+    }
+});
+```
+
+## 响应格式规范
+
+### 成功响应
+```javascript
+return {
+    content: [{
+        type: "text",
+        text: JSON.stringify({
+            success: true,
+            data: result,
+            metadata: {
+                count: result.length,
+                timestamp: new Date().toISOString()
+            }
+        }, null, 2)
+    }]
+};
+```
+
+### 错误响应
+```javascript
+return {
+    content: [{
+        type: "text", 
+        text: JSON.stringify({
+            success: false,
+            error: error.message,
+            code: "ERROR_CODE"
+        }, null, 2)
+    }]
+};
+```
+
+## 工具设计原则
+
+### 1. 单一职责
+每个工具只负责一个特定功能：
+- `pubmed_search` - 搜索文献
+- `pubmed_get_details` - 获取详情
+- `pubmed_extract_key_info` - 提取关键信息
+
+### 2. 参数验证
+```javascript
+// 参数验证模式
+const { query, max_results = 20, days_back = 0 } = args;
+
+if (!query || query.trim().length === 0) {
+    throw new Error("查询参数不能为空");
+}
+
+if (max_results > 100) {
+    throw new Error("最大结果数不能超过100");
+}
+```
+
+### 3. 性能优化
+- 使用缓存减少重复请求
+- 实现速率限制避免API限制
+- 批量处理提高效率
+
+## 日志和调试
+
+### 调试信息输出
+```javascript
+// 使用 console.error 输出调试信息（MCP特性）
+console.error(`[ToolName] Starting operation: ${operation}`);
+console.error(`[ToolName] Completed in ${duration}ms`);
+```
+
+### 性能监控
+```javascript
+const startTime = Date.now();
+// ... 执行操作
+const endTime = Date.now();
+console.error(`[Performance] Operation completed in ${endTime - startTime}ms`);
+```

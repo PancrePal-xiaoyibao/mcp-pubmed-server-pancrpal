@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "pmid": "40626838",
+  "timestamp": 1761140149520,
+  "data": {
+    "pmid": "40626838",
+    "title": "Roadmap for spatial transcriptomics of HIV in tissues.",
+    "authors": [
+      "Guan Q",
+      "Eshetu A",
+      "Ho YC"
+    ],
+    "journal": "Curr Opin HIV AIDS",
+    "publicationDate": "2025 Sep 1",
+    "volume": "20",
+    "issue": "5",
+    "pages": "502-511",
+    "abstract": "1. Curr Opin HIV AIDS. 2025 Sep 1;20(5):502-511. doi:\n10.1097/COH.0000000000000961.  Epub 2025 Jul 4.\n\nRoadmap for spatial transcriptomics of HIV in tissues.\n\nGuan Q(1), Eshetu A, Ho YC.\n\nAuthor information:\n(1)Department of Microbial Pathogenesis, Yale University School of Medicine, New \nHaven, Connecticut, USA.\n\nPURPOSE OF REVIEW: Mechanisms of HIV persistence in tissues are distinct from \nthat in the blood. Spatial transcriptomic profiling examines HIV-infected cells, \nsurrounding neighborhoods, and tissue microenvironment in unprecedented \nresolution. Spatial profiling captures cytokine gradients, distances between \nHIV-infected cells and immune effectors (and their function versus exhaustion), \nand cell-cell interactions. We present an overview of spatial transcriptomic \nplatforms and a workflow of quality controls, sanity check, and bioinformatic \nanalysis.\nRECENT FINDINGS: The selection of spatial profiling methods should base on the \nresearch question, resolution, breadth of coverage, the expression level of RNA \nof interest, tissue quality, and tissue size. Advanced spatial transcriptomic \nprofiling can capture RNA molecules at high resolution (<1 μm) and thus enable \nnear-single cell profiling at genome-wide (~20 000 genes) breadth. Specifically, \npoly-A-based mRNA capture can identify previously unknown targets, while \ntargeted RNA capture increases sensitivity in low-quality tissues. In targeted \ncapture, however, the increase in target numbers frequently decreases \nsensitivity. Coupling ATAC-seq, protein capture, and T cell receptor sequencing \nto spatial platforms is ongoing.\nSUMMARY: Spatial transcriptomic profiling uncovers mechanisms of HIV persistence \nin tissues and informs therapeutic strategies. Investigators should ensure the \nrigor of analysis, validate findings, and avoid reporting signatures with \nunknown biological significance.\n\nCopyright © 2025 Wolters Kluwer Health, Inc. All rights reserved.\n\nDOI: 10.1097/COH.0000000000000961\nPMID: 40626838 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1097/COH.0000000000000961",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40626838/",
+    "publicationTypes": [
+      "Journal Article",
+      "Review"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

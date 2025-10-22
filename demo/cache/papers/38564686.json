@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "pmid": "38564686",
+  "timestamp": 1761140149602,
+  "data": {
+    "pmid": "38564686",
+    "title": "Single-Cell Multi-Omics Map of Cell Type-Specific Mechanistic Drivers of Multiple Sclerosis Lesions.",
+    "authors": [
+      "Elkjaer ML",
+      "Hartebrodt A",
+      "Oubounyt M",
+      "Weber A",
+      "Vitved L",
+      "Reynolds R",
+      "Thomassen M",
+      "Rottger R",
+      "Baumbach J",
+      "Illes Z"
+    ],
+    "journal": "Neurol Neuroimmunol Neuroinflamm",
+    "publicationDate": "2024 May",
+    "volume": "11",
+    "issue": "3",
+    "pages": "e200213",
+    "abstract": "1. Neurol Neuroimmunol Neuroinflamm. 2024 May;11(3):e200213. doi: \n10.1212/NXI.0000000000200213. Epub 2024 Apr 2.\n\nSingle-Cell Multi-Omics Map of Cell Type-Specific Mechanistic Drivers of \nMultiple Sclerosis Lesions.\n\nElkjaer ML(1), Hartebrodt A(1), Oubounyt M(1), Weber A(1), Vitved L(1), Reynolds \nR(1), Thomassen M(1), Rottger R(1), Baumbach J(1), Illes Z(1).\n\nAuthor information:\n(1)From the Department of Neurology (M.L.E., A.W., Z.I.), Odense University \nHospital; BRIDGE (M.L.E., A.W., M.T., Z.I.), Department of Clinical Research; \nDepartment of Molecular Medicine (M.L.E., A.W., L.V., Z.I.), University of \nSouthern Denmark, Odense, Denmark; Biomedical Network Science Lab (A.H.), \nDepartment Artificial Intelligence in Biomedical Engineering, \nFriedrich-Alexander-Universität Erlangen-Nürnberg, Germany; Department of \nMathematics and Computer Science (A.H., Richard Rottger, J.B.), University of \nSouthern Denmark, Odense, Denmark; Institute for Computational Systems Biology \n(M.O., J.B.), University of Hamburg, Germany; Department of Brain Sciences \n(Richard Reynolds), Imperial College, London, United Kingdom; and Clinical \nGenome Center (M.T.), Research Unit of Human Genetics, Department of Clinical \nResearch, University of Southern Denmark, Odense, Denmark.\n\nErratum in\n    Neurol Neuroimmunol Neuroinflamm. 2024 Jul;11(4):e200267. doi: \n10.1212/NXI.0000000000200267.\n\nBACKGROUND AND OBJECTIVES: In progressive multiple sclerosis (MS), \ncompartmentalized inflammation plays a pivotal role in the complex pathology of \ntissue damage. The interplay between epigenetic regulation, transcriptional \nmodifications, and location-specific alterations within white matter (WM) \nlesions at the single-cell level remains underexplored.\nMETHODS: We examined intracellular and intercellular pathways in the MS brain WM \nusing a novel dataset obtained by integrated single-cell multi-omics techniques \nfrom 3 active lesions, 3 chronic active lesions, 3 remyelinating lesions, and 3 \ncontrol WM of 6 patients with progressive MS and 3 non-neurologic controls. \nSingle-nucleus RNA-seq and ATAC-seq were combined and additionally enriched with \nnewly conducted spatial transcriptomics from 1 chronic active lesion. Functional \ngene modules were then validated in our previously published bulk tissue \ntranscriptome data obtained from 73 WM lesions of patients with progressive MS \nand 25 WM of non-neurologic disease controls.\nRESULTS: Our analysis uncovered an MS-specific oligodendrocyte genetic signature \ninfluenced by the KLF/SP gene family. This modulation has potential associations \nwith the autocrine iron uptake signaling observed in transcripts of transferrin \nand its receptor LRP2. In addition, an inflammatory profile emerged within these \noligodendrocytes. We observed unique cellular endophenotypes both at the \nperiphery and within the chronic active lesion. These include a distinct \nmetabolic astrocyte phenotype, the importance of FGF signaling among astrocytes \nand neurons, and a notable enrichment of mitochondrial genes at the lesion edge \npopulated predominantly by astrocytes. Our study also identified B-cell \ncoexpression networks indicating different functional B-cell subsets with \ndifferential location and specific tendencies toward certain lesion types.\nDISCUSSION: The use of single-cell multi-omics has offered a detailed \nperspective into the cellular dynamics and interactions in MS. These nuanced \nfindings might pave the way for deeper insights into lesion pathogenesis in \nprogressive MS.\n\nDOI: 10.1212/NXI.0000000000200213\nPMCID: PMC11073880\nPMID: 38564686 [Indexed for MEDLINE]\n\nConflict of interest statement: The authors report no relevant disclosures. Go \nto Neurology.org/NN for full disclosures.",
+    "doi": "doi: 10.1212/NXI.0000000000200213",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38564686/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

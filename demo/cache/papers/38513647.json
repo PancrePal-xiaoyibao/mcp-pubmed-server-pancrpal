@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "pmid": "38513647",
+  "timestamp": 1761140149612,
+  "data": {
+    "pmid": "38513647",
+    "title": "Transcriptomic, epigenomic, and spatial metabolomic cell profiling redefines regional human kidney anatomy.",
+    "authors": [
+      "Li H",
+      "Li D",
+      "Ledru N",
+      "Xuanyuan Q",
+      "Wu H",
+      "Asthana A",
+      "Byers LN",
+      "Tullius SG",
+      "Orlando G",
+      "Waikar SS",
+      "Humphreys BD"
+    ],
+    "journal": "Cell Metab",
+    "publicationDate": "2024 May 7",
+    "volume": "36",
+    "issue": "5",
+    "pages": "1105-1125.e10",
+    "abstract": "1. Cell Metab. 2024 May 7;36(5):1105-1125.e10. doi: 10.1016/j.cmet.2024.02.015. \nEpub 2024 Mar 20.\n\nTranscriptomic, epigenomic, and spatial metabolomic cell profiling redefines \nregional human kidney anatomy.\n\nLi H(1), Li D(1), Ledru N(1), Xuanyuan Q(1), Wu H(1), Asthana A(2), Byers LN(2), \nTullius SG(3), Orlando G(2), Waikar SS(4), Humphreys BD(5).\n\nAuthor information:\n(1)Division of Nephrology, Department of Medicine, Washington University in St. \nLouis, St. Louis, MO, USA.\n(2)Department of Surgery, Atrium Health Wake Forest Baptist, Wake Forest \nInstitute for Regenerative Medicine, Wake Forest School of Medicine, Winston \nSalem, NC, USA.\n(3)Division of Transplant Surgery and Transplant Surgery Research Laboratory, \nDepartment of Surgery, Brigham and Women's Hospital, Harvard Medical School, \nBoston, MA, USA.\n(4)Section of Nephrology, Department of Medicine, Boston University Chobanian & \nAvedisian School of Medicine, Boston Medical Center, Boston, MA, USA.\n(5)Division of Nephrology, Department of Medicine, Washington University in St. \nLouis, St. Louis, MO, USA; Department of Developmental Biology, Washington \nUniversity in St. Louis, St. Louis, MO, USA. Electronic address: \nhumphreysbd@wustl.edu.\n\nA large-scale multimodal atlas that includes major kidney regions is lacking. \nHere, we employed simultaneous high-throughput single-cell ATAC/RNA sequencing \n(SHARE-seq) and spatially resolved metabolomics to profile 54 human samples from \ndistinct kidney anatomical regions. We generated transcriptomes of 446,267 cells \nand chromatin accessibility profiles of 401,875 cells and developed a package to \nanalyze 408,218 spatially resolved metabolomes. We find that the same cell type, \nincluding thin limb, thick ascending limb loop of Henle and principal cells, \ndisplay distinct transcriptomic, chromatin accessibility, and metabolomic \nsignatures, depending on anatomic location. Surveying metabolism-associated gene \nprofiles revealed non-overlapping metabolic signatures between nephron segments \nand dysregulated lipid metabolism in diseased proximal tubule (PT) cells. \nIntegrating multimodal omics with clinical data identified PLEKHA1 as a disease \nmarker, and its in vitro knockdown increased gene expression in PT \ndifferentiation, suggesting possible pathogenic roles. This study highlights \npreviously underrepresented cellular heterogeneity underlying the human kidney \nanatomy.\n\nCopyright © 2024 The Authors. Published by Elsevier Inc. All rights reserved.\n\nDOI: 10.1016/j.cmet.2024.02.015\nPMCID: PMC11081846\nPMID: 38513647 [Indexed for MEDLINE]\n\nConflict of interest statement: Declaration of interests B.D.H. is a consultant \nfor Janssen Research & Development, LLC, Pfizer, and Chinook Therapeutics, held \nequity in Chinook Therapeutics and grant funding from Chinook Therapeutics, \nPfizer and Janssen Research & Development, LLC; all interests are unrelated to \nthe current work.",
+    "doi": "doi: 10.1016/j.cmet.2024.02.015",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38513647/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

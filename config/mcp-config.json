@@ -3,7 +3,7 @@
   "mcpServers": {
     "pubmed-data-server": {
       "disabled": false,
-      "timeout": 180,
+      "timeout": 300,
       "type": "stdio",
       "command": "node",
       "args": [
@@ -12,7 +12,10 @@
       "cwd": ".",
       "env": {
         "PUBMED_API_KEY": "your_pubmed_api_key_here",
-        "PUBMED_EMAIL": "your_email@example.com"
+        "PUBMED_EMAIL": "your_email@example.com",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled",
+        "ENDNOTE_EXPORT": "enabled"
       }
     }
   }

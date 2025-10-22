@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "pmid": "39172759",
+  "timestamp": 1761140184421,
+  "data": {
+    "pmid": "39172759",
+    "title": "Spatial transcriptomics reveals profound subclonal heterogeneity and T-cell dysfunction in extramedullary myeloma.",
+    "authors": [
+      "John M",
+      "Helal M",
+      "Duell J",
+      "Mattavelli G",
+      "Stanojkovska E",
+      "Afrin N",
+      "Leipold AM",
+      "Steinhardt MJ",
+      "Zhou X",
+      "Žihala D",
+      "Anilkumar Sithara A",
+      "Mersi J",
+      "Waldschmidt JM",
+      "Riedhammer C",
+      "Kadel SK",
+      "Truger M",
+      "Werner RA",
+      "Haferlach C",
+      "Einsele H",
+      "Kretzschmar K",
+      "Jelínek T",
+      "Rosenwald A",
+      "Kortüm KM",
+      "Riedel A",
+      "Rasche L"
+    ],
+    "journal": "Blood",
+    "publicationDate": "2024 Nov 14",
+    "volume": "144",
+    "issue": "20",
+    "pages": "2121-2135",
+    "abstract": "1. Blood. 2024 Nov 14;144(20):2121-2135. doi: 10.1182/blood.2024024590.\n\nSpatial transcriptomics reveals profound subclonal heterogeneity and T-cell \ndysfunction in extramedullary myeloma.\n\nJohn M(1), Helal M(1), Duell J(2), Mattavelli G(1), Stanojkovska E(1), Afrin \nN(1), Leipold AM(3), Steinhardt MJ(2), Zhou X(2), Žihala D(4)(5), Anilkumar \nSithara A(4)(5), Mersi J(2), Waldschmidt JM(2), Riedhammer C(2), Kadel SK(2), \nTruger M(6), Werner RA(7)(8), Haferlach C(6), Einsele H(2), Kretzschmar K(1), \nJelínek T(4)(5), Rosenwald A(9), Kortüm KM(2), Riedel A(1), Rasche L(1)(2).\n\nAuthor information:\n(1)Mildred Scheel Early Career Center, University Hospital Würzburg, Würzburg, \nGermany.\n(2)Department of Internal Medicine II, University Hospital Würzburg, Würzburg, \nGermany.\n(3)Helmholtz Institute for RNA-based Infection Research, Helmholtz-Center for \nInfection Research, Würzburg, Germany.\n(4)Department of Hematooncology, Faculty of Medicine, University of Ostrava, \nOstrava, Czech Republic.\n(5)Department of Hematooncology, University Hospital Ostrava, Ostrava, Czech \nRepublic.\n(6)Munich Leukemia Laboratory, Munich, Germany.\n(7)Department of Nuclear Medicine, University Hospital Würzburg, Würzburg, \nGermany.\n(8)Department of Nuclear Medicine, Clinic for Radiology and Nuclear Medicine, \nUniversity Hospital, Goethe University Frankfurt, Frankfurt, Germany.\n(9)Institute of Pathology, University of Würzburg, Würzburg, Germany.\n\nExtramedullary disease (EMD) is a high-risk feature of multiple myeloma (MM) and \nremains a poor prognostic factor, even in the era of novel immunotherapies. \nHere, we applied spatial transcriptomics (RNA tomography for spatially resolved \ntranscriptomics [tomo-seq] [n = 2] and 10x Visium [n = 12]) and single-cell RNA \nsequencing (n = 3) to a set of 14 EMD biopsies to dissect the 3-dimensional \narchitecture of tumor cells and their microenvironment. Overall, infiltrating \nimmune and stromal cells showed both intrapatient and interpatient variations, \nwith no uniform distribution over the lesion. We observed substantial \nheterogeneity at the copy number level within plasma cells, including the \nemergence of new subclones in circumscribed areas of the tumor, which is \nconsistent with genomic instability. We further identified the spatial \nexpression differences between GPRC5D and TNFRSF17, 2 important antigens for \nbispecific antibody therapy. EMD masses were infiltrated by various immune \ncells, including T cells. Notably, exhausted TIM3+/PD-1+ T cells diffusely \ncolocalized with MM cells, whereas functional and activated CD8+ T cells showed \na focal infiltration pattern along with M1 macrophages in tumor-free regions. \nThis segregation of fit and exhausted T cells was resolved in the case of \nresponse to T-cell-engaging bispecific antibodies. MM and microenvironment cells \nwere embedded in a complex network that influenced immune activation and \nangiogenesis, and oxidative phosphorylation represented the major metabolic \nprogram within EMD lesions. In summary, spatial transcriptomics has revealed a \nmulticellular ecosystem in EMD with checkpoint inhibition and dual targeting as \npotential new therapeutic avenues.\n\n© 2024 American Society of Hematology. Published by Elsevier Inc. All rights are \nreserved, including those for text and data mining, AI training, and similar \ntechnologies.\n\nDOI: 10.1182/blood.2024024590\nPMID: 39172759 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1182/blood.2024024590",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39172759/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

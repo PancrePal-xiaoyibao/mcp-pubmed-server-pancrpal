@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "pmid": "36495443",
+  "timestamp": 1761140173052,
+  "data": {
+    "pmid": "36495443",
+    "title": "Guidance on Processing the 10x Genomics Single Cell Gene Expression Assay.",
+    "authors": [
+      "Danielski K"
+    ],
+    "journal": "Methods Mol Biol",
+    "publicationDate": "2023",
+    "volume": "2584",
+    "issue": "",
+    "pages": "1-28",
+    "abstract": "1. Methods Mol Biol. 2023;2584:1-28. doi: 10.1007/978-1-0716-2756-3_1.\n\nGuidance on Processing the 10x Genomics Single Cell Gene Expression Assay.\n\nDanielski K(1).\n\nAuthor information:\n(1)10x Genomics B.V, Leiden, The Netherlands. \nkatharina.danielski@10xgenomics.com.\n\nThe demand for technologies that allow the study of gene expression at single \ncell resolution continues to increase. One such assay was launched in 2016 by \nthe US-based company 10x Genomics Inc. Utilizing the power of the single cell on \na large scale (Zheng et al. Nat Commun 8:14049, 2017)-capturing thousands of \ncells at once-has shaped life sciences ever since and allowed researchers to \ndiscover new insights within their respective fields of study such as oncology, \nneurobiology, and immunology (among others). Obtaining high-data quality is the \nkey to being able to make these meaningful discoveries, which in turn is \ndirectly linked to the quality of the initial cell (or nuclei) suspension that \nis used to load the 10x Genomics Chromium Single Cell Gene Expression assay. A \nsuccessful workflow relies on a cell suspension which is fully dissociated, \nextremely clean, and of high viability. While the workflow itself has been \ndetailed elsewhere (De Simone et al. Methods Mol Biol 1979:87-110, 2019), in \nthis chapter we will focus on the importance of the quality of the initial cell \nsuspension, as well as common mistakes that can occur while running a Single \nCell Gene Expression assay. The descriptions of these tips and tricks refer to \nthe current version of the 10x Genomics User Guide (Chromium Single Cell 3' \nReagent Kits User Guide (v3.1 Chemistry Dual Index). \nhttps://support10xgenomicscom/single-cell-gene-expression/index/doc/user-guide-chromium-single-cell-3-reagent-kits-user-guide-v31-chemistry-dual-index) \nwhich can be downloaded from the Support section on the 10x Genomics website \n(10x Genomics website. https://www10xgenomicscom). These documents and user \nguides are continuously improved and updated; hence, it is important to \nregularly check the company's website for the most recent version.\n\n© 2023. The Author(s), under exclusive license to Springer Science+Business \nMedia, LLC, part of Springer Nature.\n\nDOI: 10.1007/978-1-0716-2756-3_1\nPMID: 36495443 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1007/978-1-0716-2756-3_1",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36495443/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

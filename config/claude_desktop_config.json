@@ -7,7 +7,10 @@
       "env": {
         "PUBMED_API_KEY": "${PUBMED_API_KEY}",
         "PUBMED_EMAIL": "${PUBMED_EMAIL}",
-        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled",
+        "ENDNOTE_EXPORT": "enabled"
       }
     }
   }

@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "pmid": "36418727",
+  "timestamp": 1761140211125,
+  "data": {
+    "pmid": "36418727",
+    "title": "scRNA-seq for Microcephaly Research [I]: Single-Cell Droplet Encapsulation, mRNA Capture, and cDNA Synthesis.",
+    "authors": [
+      "Babcock B",
+      "Weir S"
+    ],
+    "journal": "Methods Mol Biol",
+    "publicationDate": "2023",
+    "volume": "2583",
+    "issue": "",
+    "pages": "83-97",
+    "abstract": "1. Methods Mol Biol. 2023;2583:83-97. doi: 10.1007/978-1-0716-2752-5_8.\n\nscRNA-seq for Microcephaly Research [I]: Single-Cell Droplet Encapsulation, mRNA \nCapture, and cDNA Synthesis.\n\nBabcock B(1), Weir S(2).\n\nAuthor information:\n(1)Department of Medicine, Division of Immunology, Lowance Center for Human \nImmunology, Emory University School of Medicine, Atlanta, GA, USA. \nben.babcock@emory.edu.\n(2)Department of Neurology, University of North Carolina Medical School, Chapel \nHill, NC, USA.\n\nSingle-cell RNA sequencing (scRNA-seq) allows for the transcriptomic profiling \nof a sample tissue with single-cell resolution. The concept of scRNA-seq builds \non traditional, \"bulk\" RNA-seq by recording and preserving the cellular origin \nof each transcript throughout library preparation. Here we describe an \nadaptation of the Drop-Seq method (Macosko et al. Cell 161, 1202-1214, 2015), in \nwhich nanoliter-scale droplets are used to physically separate dissociated \ncells, while a cell-specific DNA barcode is simultaneously introduced. Following \nbarcoding, cDNAs can be mixed and pooled while retaining the identity of the \ncell of origin. The benefit of the Drop-Seq approach is high throughput from \nrelatively small samples of tissue. The method described here is appropriate for \nprocessing an input of as few as 150,000 cells, with a final yield of as many as \n5000 single-cell transcripts captured.\n\n© 2023. Springer Science+Business Media, LLC, part of Springer Nature.\n\nDOI: 10.1007/978-1-0716-2752-5_8\nPMID: 36418727 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1007/978-1-0716-2752-5_8",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36418727/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

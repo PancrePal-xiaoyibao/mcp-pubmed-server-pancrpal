@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "pmid": "39138551",
+  "timestamp": 1761140184431,
+  "data": {
+    "pmid": "39138551",
+    "title": "Spatial multiomics reveals a subpopulation of fibroblasts associated with cancer stemness in human hepatocellular carcinoma.",
+    "authors": [
+      "Jing SY",
+      "Liu D",
+      "Feng N",
+      "Dong H",
+      "Wang HQ",
+      "Yan X",
+      "Chen XF",
+      "Qu MC",
+      "Lin P",
+      "Yi B",
+      "Feng F",
+      "Chen L",
+      "Wang HY",
+      "Li H",
+      "He YF"
+    ],
+    "journal": "Genome Med",
+    "publicationDate": "2024 Aug 13",
+    "volume": "16",
+    "issue": "1",
+    "pages": "98",
+    "abstract": "1. Genome Med. 2024 Aug 13;16(1):98. doi: 10.1186/s13073-024-01367-8.\n\nSpatial multiomics reveals a subpopulation of fibroblasts associated with cancer \nstemness in human hepatocellular carcinoma.\n\nJing SY(#)(1), Liu D(#)(2)(3), Feng N(#)(2), Dong H(#)(4), Wang HQ(1), Yan X(1), \nChen XF(1), Qu MC(2), Lin P(1), Yi B(5), Feng F(6), Chen L(7), Wang HY(8)(9), Li \nH(10), He YF(11).\n\nAuthor information:\n(1)CAS Key Laboratory of Computational Biology, Shanghai Institute of Nutrition \nand Health, University of Chinese Academy of Sciences, Chinese Academy of \nSciences, Shanghai, 200031, People's Republic of China.\n(2)Molecular Pathology Laboratory, National Center for Liver Cancer, Eastern \nHepatobiliary Surgery Hospital, Shanghai, 201800, People's Republic of China.\n(3)Cancer Institute, Xuzhou Medical University, Xuzhou, Jiangsu, 221004, \nPeople's Republic of China.\n(4)Department of Pathology, Eastern Hepatobiliary Surgery Hospital, Shanghai, \n200438, People's Republic of China.\n(5)Department of Organ Transplantation, Eastern Hepatobiliary Surgery Hospital, \nShanghai, 201800, People's Republic of China.\n(6)Department of Biliary Tract Surgery I, Eastern Hepatobiliary Surgery \nHospital, Shanghai, 201800, People's Republic of China.\n(7)National Center for Liver Cancer and International Cooperation Laboratory On \nSignal Transduction, Eastern Hepatobiliary Surgery Institute/Hospital, Shanghai, \n200438, People's Republic of China. chenlei@smmu.edu.cn.\n(8)National Center for Liver Cancer and International Cooperation Laboratory On \nSignal Transduction, Eastern Hepatobiliary Surgery Institute/Hospital, Shanghai, \n200438, People's Republic of China. hywangk@vip.sina.com.\n(9)Key Laboratory of Signaling Regulation and Targeting Therapy of Liver Cancer, \nMinistry of Education and Shanghai Key Laboratory of Hepatobiliary Tumor \nBiology, Shanghai, 200438, People's Republic of China. hywangk@vip.sina.com.\n(10)CAS Key Laboratory of Computational Biology, Shanghai Institute of Nutrition \nand Health, University of Chinese Academy of Sciences, Chinese Academy of \nSciences, Shanghai, 200031, People's Republic of China. lihong01@sinh.ac.cn.\n(11)Molecular Pathology Laboratory, National Center for Liver Cancer, Eastern \nHepatobiliary Surgery Hospital, Shanghai, 201800, People's Republic of China. \nyfhe@sibcb.ac.cn.\n(#)Contributed equally\n\nBACKGROUND: Cancer-associated fibroblasts (CAFs) are the prominent cell type in \nthe tumor microenvironment (TME), and CAF subsets have been identified in \nvarious tumors. However, how CAFs spatially coordinate other cell populations \nwithin the liver TME to promote cancer progression remains unclear.\nMETHODS: We combined multi-region proteomics (6 patients, 24 samples), 10X \nGenomics Visium spatial transcriptomics (11 patients, 25 samples), and \nmultiplexed imaging (92 patients, 264 samples) technologies to decipher the \nexpression heterogeneity, functional diversity, spatial distribution, \ncolocalization, and interaction of fibroblasts. The newly identified CAF \nsubpopulation was validated by cells isolated from 5 liver cancer patients and \nin vitro functional assays.\nRESULTS: We identified a liver CAF subpopulation, marked by the expression of \nCOL1A2, COL4A1, COL4A2, CTGF, and FSTL1, and named F5-CAF. F5-CAF is \npreferentially located within and around tumor nests and colocalizes with cancer \ncells with higher stemness in hepatocellular carcinoma (HCC). Multiplexed \nstaining of 92 patients and the bulk transcriptome of 371 patients demonstrated \nthat the abundance of F5-CAFs in HCC was associated with a worse prognosis. \nFurther in vitro experiments showed that F5-CAFs isolated from liver cancer \npatients can promote the proliferation and stemness of HCC cells.\nCONCLUSIONS: We identified a CAF subpopulation F5-CAF in liver cancer, which is \nassociated with cancer stemness and unfavorable prognosis. Our results provide \npotential mechanisms by which the CAF subset in the TME promotes the development \nof liver cancer by supporting the survival of cancer stem cells.\n\n© 2024. The Author(s).\n\nDOI: 10.1186/s13073-024-01367-8\nPMCID: PMC11320883\nPMID: 39138551 [Indexed for MEDLINE]\n\nConflict of interest statement: The authors declare that they have no competing \ninterests.",
+    "doi": "doi: 10.1186/s13073-024-01367-8",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39138551/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

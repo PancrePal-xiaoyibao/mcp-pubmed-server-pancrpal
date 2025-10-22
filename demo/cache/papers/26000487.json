@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "pmid": "26000487",
+  "timestamp": 1761140234156,
+  "data": {
+    "pmid": "26000487",
+    "title": "Droplet barcoding for single-cell transcriptomics applied to embryonic stem cells.",
+    "authors": [
+      "Klein AM",
+      "Mazutis L",
+      "Akartuna I",
+      "Tallapragada N",
+      "Veres A",
+      "Li V",
+      "Peshkin L",
+      "Weitz DA",
+      "Kirschner MW"
+    ],
+    "journal": "Cell",
+    "publicationDate": "2015 May 21",
+    "volume": "161",
+    "issue": "5",
+    "pages": "1187-1201",
+    "abstract": "1. Cell. 2015 May 21;161(5):1187-1201. doi: 10.1016/j.cell.2015.04.044.\n\nDroplet barcoding for single-cell transcriptomics applied to embryonic stem \ncells.\n\nKlein AM(1), Mazutis L(2), Akartuna I(3), Tallapragada N(1), Veres A(4), Li \nV(1), Peshkin L(1), Weitz DA(5), Kirschner MW(6).\n\nAuthor information:\n(1)Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA.\n(2)School of Engineering and Applied Sciences (SEAS), Harvard University, \nCambridge, MA 02138, USA; Vilnius University Institute of Biotechnology, Vilnius \nLT-02241, Lithuania.\n(3)School of Engineering and Applied Sciences (SEAS), Harvard University, \nCambridge, MA 02138, USA.\n(4)Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA; \nDepartment of Stem Cell and Regenerative Biology, Harvard University, Cambridge, \nMA 02138, USA; Harvard Stem Cell Institute, Harvard University, Cambridge, MA \n02138, USA.\n(5)School of Engineering and Applied Sciences (SEAS), Harvard University, \nCambridge, MA 02138, USA. Electronic address: weitz@seas.harvard.edu.\n(6)Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA. \nElectronic address: marc@hms.harvard.edu.\n\nComment in\n    Mol Cell. 2015 May 21;58(4):563-4. doi: 10.1016/j.molcel.2015.05.019.\n    Science. 2016 Jun 17;352(6292):1390-1. doi: 10.1126/science.aag1097.\n\nIt has long been the dream of biologists to map gene expression at the \nsingle-cell level. With such data one might track heterogeneous cell \nsub-populations, and infer regulatory relationships between genes and pathways. \nRecently, RNA sequencing has achieved single-cell resolution. What is limiting \nis an effective way to routinely isolate and process large numbers of individual \ncells for quantitative in-depth sequencing. We have developed a high-throughput \ndroplet-microfluidic approach for barcoding the RNA from thousands of individual \ncells for subsequent analysis by next-generation sequencing. The method shows a \nsurprisingly low noise profile and is readily adaptable to other \nsequencing-based assays. We analyzed mouse embryonic stem cells, revealing in \ndetail the population structure and the heterogeneous onset of differentiation \nafter leukemia inhibitory factor (LIF) withdrawal. The reproducibility of these \nhigh-throughput single-cell data allowed us to deconstruct cell populations and \ninfer gene expression relationships. VIDEO ABSTRACT.\n\nCopyright © 2015 Elsevier Inc. All rights reserved.\n\nDOI: 10.1016/j.cell.2015.04.044\nPMCID: PMC4441768\nPMID: 26000487 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1016/j.cell.2015.04.044",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26000487/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

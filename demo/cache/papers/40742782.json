@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "pmid": "40742782",
+  "timestamp": 1761140149510,
+  "data": {
+    "pmid": "40742782",
+    "title": "Single cell analyses of the HIV reservoir in the CNS and CSF: recent insights and implications.",
+    "authors": [
+      "Filippidis P",
+      "Corley MJ"
+    ],
+    "journal": "Curr Opin HIV AIDS",
+    "publicationDate": "2025 Sep 1",
+    "volume": "20",
+    "issue": "5",
+    "pages": "493-501",
+    "abstract": "1. Curr Opin HIV AIDS. 2025 Sep 1;20(5):493-501. doi:\n10.1097/COH.0000000000000958.  Epub 2025 Jul 15.\n\nSingle cell analyses of the HIV reservoir in the CNS and CSF: recent insights \nand implications.\n\nFilippidis P(1), Corley MJ(2).\n\nAuthor information:\n(1)Department of Pathology, Yale School of Medicine, New Haven, Connecticut.\n(2)Department of Medicine, University of California San Diego, California, USA.\n\nPURPOSE OF REVIEW: This review highlights recent advances in single cell \n\"-omics\" technologies that have transformed our understanding of the HIV \nreservoir in the central nervous system (CNS) and cerebrospinal fluid (CSF).\nRECENT FINDINGS: Recent studies have applied single cell and single nucleus \nRNA-seq, ATAC-seq, CITE-seq, AIRR-seq, multiomic platforms, and spatial \ntranscriptomics to postmortem brain tissues and CSF. These analyses have \nrevealed that HIV persists in rare subsets of CNS-resident microglia and \ntrafficking CD4 + T cells despite ART. Infected microglia often display \ninflammatory transcriptional states, while clonal T cell populations harboring \nHIV can migrate between blood and CSF. Spatial and multimodal approaches are \nuncovering both the tissue localization and epigenetic regulation of infected \ncells, offering unprecedented insight into reservoir biology and \nneuropathogenesis.\nSUMMARY: Single cell studies have established the CNS as a transcriptionally \nactive and clonally maintained reservoir of HIV during ART. These findings \nunderscore the need for cure strategies that penetrate the brain, target both \nlymphoid and myeloid reservoirs, and consider the transcriptional, epigenetic \nand spatial context of HIV-infected cells. Ongoing technological advances will \nfurther illuminate the dynamics of the CNS reservoir and guide the design of \ndiagnostic, prognostic and therapeutic biomarkers and CNS-penetrant therapeutic \ninterventions.\n\nCopyright © 2025 Wolters Kluwer Health, Inc. All rights reserved.\n\nDOI: 10.1097/COH.0000000000000958\nPMID: 40742782 [Indexed for MEDLINE]",
+    "doi": "doi: 10.1097/COH.0000000000000958",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40742782/",
+    "publicationTypes": [
+      "Journal Article",
+      "Review"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}

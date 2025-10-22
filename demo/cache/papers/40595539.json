@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "pmid": "40595539",
+  "timestamp": 1761140149530,
+  "data": {
+    "pmid": "40595539",
+    "title": "Facilitate integrated analysis of single cell multiomic data by binarizing gene expression values.",
+    "authors": [
+      "Misra R",
+      "Ferrena A",
+      "Zheng D"
+    ],
+    "journal": "Nat Commun",
+    "publicationDate": "2025 Jul 1",
+    "volume": "16",
+    "issue": "1",
+    "pages": "5763",
+    "abstract": "1. Nat Commun. 2025 Jul 1;16(1):5763. doi: 10.1038/s41467-025-60899-8.\n\nFacilitate integrated analysis of single cell multiomic data by binarizing gene \nexpression values.\n\nMisra R(1), Ferrena A(1)(2), Zheng D(3)(4)(5)(6)(7).\n\nAuthor information:\n(1)Department of Genetics, Albert Einstein College of Medicine, Bronx, NY, USA.\n(2)Institute for Clinical and Translational Research, Albert Einstein College of \nMedicine, Bronx, NY, USA.\n(3)Department of Genetics, Albert Einstein College of Medicine, Bronx, NY, USA. \ndeyou.zheng@einsteinmed.edu.\n(4)Department of Neurology, Albert Einstein College of Medicine, Bronx, NY, USA. \ndeyou.zheng@einsteinmed.edu.\n(5)Department of Neuroscience, Albert Einstein College of Medicine, Bronx, NY, \nUSA. deyou.zheng@einsteinmed.edu.\n(6)Marilyn and Stanley M. Katz Institute for Immunotherapy for Cancer and \nInflammatory Disorders, Albert Einstein College of Medicine, Bronx, NY, USA. \ndeyou.zheng@einsteinmed.edu.\n(7)Data Science Institute, Albert Einstein College of Medicine, Bronx, NY, USA. \ndeyou.zheng@einsteinmed.edu.\n\nA cell type's identity can be revealed by its transcriptome and epigenome \nprofiles, both of which can be in flux temporally and spatially, leading to \ndistinct cell states or subtypes. The popular and standard workflow for single \ncell RNA-seq (scRNA-seq) data analysis applies feature selection, dimensional \nreduction, and clustering on the gene expression values quantified by read \ncounts, but alternative approaches using a simple classification of a gene to \n\"on\" and \"off\" (i.e., binarization of the gene expression) have been proposed \nfor clustering cells and other downstream analyses. Here, we demonstrate that a \ndirect concatenation of the binarized scRNA-seq data and the standard single \ncell ATAC-seq data is sufficient and effective for vertical integrated \nclustering analysis, after applying term-frequency-inverse document frequency \n(TF-IDF) and single value decomposition (also called latent semantic indexing, \nLSI) algorithms to the combined data, when the two data modalities are collected \nusing a paired multiomic technology. This proposed approach avoids the need for \nconverting scATAC-seq data to gene activity scores for combined analysis. \nFurthermore it enables a direct investigation into the contribution of each data \ntype for resolving cell type or subtype identity.\n\n© 2025. The Author(s).\n\nDOI: 10.1038/s41467-025-60899-8\nPMCID: PMC12218346\nPMID: 40595539 [Indexed for MEDLINE]\n\nConflict of interest statement: Competing interests: The authors declare no \ncompeting interests.",
+    "doi": "doi: 10.1038/s41467-025-60899-8",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40595539/",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "meshTerms": [],
+    "keywords": []
+  }
+}
