@@ -4,6 +4,9 @@
   "description": "Enhanced PubMed MCP server with LLM-powered intelligent search and analysis",
   "main": "src/index.js",
   "type": "module",
+  "bin": {
+    "mcp-pubmed-llm-server": "./src/index.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch src/index.js",

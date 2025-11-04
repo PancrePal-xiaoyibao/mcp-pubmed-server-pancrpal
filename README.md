@@ -8,7 +8,8 @@
 ```
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Version: v2.0](https://img.shields.io/badge/Version-v2.0-brightgreen)](https://github.com/your-repo/mcp-pubmed-server)
+[![npm version](https://img.shields.io/npm/v/mcp-pubmed-llm-server.svg)](https://www.npmjs.com/package/mcp-pubmed-llm-server)
+[![npm downloads](https://img.shields.io/npm/dm/mcp-pubmed-llm-server.svg)](https://www.npmjs.com/package/mcp-pubmed-llm-server)
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-orange)](https://modelcontextprotocol.io/)
 [![PubMed API](https://img.shields.io/badge/PubMed-API-blue)](https://www.ncbi.nlm.nih.gov/books/NBK25501/)
 [![EndNote Export](https://img.shields.io/badge/EndNote-Export-green)](docs/ENDNOTE_EXPORT.md)
@@ -71,14 +72,38 @@
 ### 前置要求
 安装Node.js (v18.0.0+)：[nodejs.org](https://nodejs.org/)
 
-### 步骤一：下载项目
+### 方式一：使用 npm 安装（推荐）
+
+通过 npm 全局安装或本地安装：
+
 ```bash
-git clone [项目地址] mcp-pubmed-server
-cd mcp-pubmed-server
+# 全局安装
+npm install -g mcp-pubmed-llm-server
+
+# 或本地安装
+npm install mcp-pubmed-llm-server
 ```
 
-### 步骤二：安装依赖
+安装后，可以通过以下方式使用：
+
 ```bash
+# 全局安装后直接运行
+mcp-pubmed-llm-server
+
+# 或本地安装后使用 npx
+npx mcp-pubmed-llm-server
+```
+
+### 方式二：从源码安装
+
+如果你想从源码安装或贡献代码：
+
+```bash
+# 克隆仓库
+git clone [项目地址] mcp-pubmed-server
+cd mcp-pubmed-server
+
+# 安装依赖
 npm install
 ```
 
@@ -126,6 +151,43 @@ ENDNOTE_EXPORT=enabled
 ### 步骤五：MCP客户端配置
 
 #### 1. Cline (VS Code Extension) 配置
+
+**使用 npm 包（推荐）：**
+```json
+{
+  "mcpServers": {
+    "pubmed-data-server": {
+      "command": "npx",
+      "args": ["-y", "mcp-pubmed-llm-server"],
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或使用全局安装：**
+```json
+{
+  "mcpServers": {
+    "pubmed-data-server": {
+      "command": "mcp-pubmed-llm-server",
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或从源码安装：**
 ```json
 {
   "mcpServers": {
@@ -149,6 +211,49 @@ ENDNOTE_EXPORT=enabled
 - **Windows**: `C:/Users/YourUser/mcp-pubmed-server`
 
 #### 2. Cherry Studio (Windows) 配置
+
+**使用 npm 包（推荐）：**
+```json
+{
+  "mcpServers": {
+    "VBFfGqCFz9AuZJXX2f5GL": {
+      "name": "pubmed-data-server",
+      "type": "stdio",
+      "isActive": true,
+      "command": "npx",
+      "args": ["-y", "mcp-pubmed-llm-server"],
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或使用全局安装：**
+```json
+{
+  "mcpServers": {
+    "VBFfGqCFz9AuZJXX2f5GL": {
+      "name": "pubmed-data-server",
+      "type": "stdio",
+      "isActive": true,
+      "command": "mcp-pubmed-llm-server",
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或从源码安装：**
 ```json
 {
   "mcpServers": {
@@ -172,7 +277,7 @@ ENDNOTE_EXPORT=enabled
 ```
 
 **Windows 网络映射配置说明：**
-- `Y:/` - Samba 网络驱动器映射路径
+- npm 包方式最简单，无需配置路径
 - 也可以使用本地路径如 `C:/mcp-pubmed-server/src/index.js`
 - **注意**: Cherry Studio 不支持 `cwd` 参数
 
@@ -180,6 +285,42 @@ ENDNOTE_EXPORT=enabled
 编辑 `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) 或
 `%APPDATA%/Claude/claude_desktop_config.json` (Windows):
 
+**使用 npm 包（推荐）：**
+```json
+{
+  "mcpServers": {
+    "pubmed-data-server": {
+      "command": "npx",
+      "args": ["-y", "mcp-pubmed-llm-server"],
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或使用全局安装：**
+```json
+{
+  "mcpServers": {
+    "pubmed-data-server": {
+      "command": "mcp-pubmed-llm-server",
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或从源码安装：**
 ```json
 {
   "mcpServers": {
@@ -207,6 +348,42 @@ cp config/claude_desktop_config.json.example config/claude_desktop_config.json
 #### 4. Claude Code (CLI) 配置
 编辑 `~/.claude/config.json`:
 
+**使用 npm 包（推荐）：**
+```json
+{
+  "mcpServers": {
+    "pubmed-data-server": {
+      "command": "npx",
+      "args": ["-y", "mcp-pubmed-llm-server"],
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或使用全局安装：**
+```json
+{
+  "mcpServers": {
+    "pubmed-data-server": {
+      "command": "mcp-pubmed-llm-server",
+      "env": {
+        "PUBMED_API_KEY": "你的API密钥",
+        "PUBMED_EMAIL": "你的邮箱地址",
+        "ABSTRACT_MODE": "deep",
+        "FULLTEXT_MODE": "enabled"
+      }
+    }
+  }
+}
+```
+
+**或从源码安装：**
 ```json
 {
   "mcpServers": {
@@ -399,6 +576,10 @@ mcp-pubmed-server/
 
 1. **"找不到模块 @modelcontextprotocol/sdk"**
    ```bash
+   # 如果使用 npm 包
+   npm install -g mcp-pubmed-llm-server
+   
+   # 如果从源码安装
    npm install
    ```
 
@@ -417,11 +598,18 @@ mcp-pubmed-server/
    - 使用正斜杠 `/` 或双反斜杠 `\\`
 
 ### 部署清单
-- [ ] Node.js已安装
-- [ ] 依赖已安装 (`npm install`)
-- [ ] `.env` 文件已配置
+- [ ] Node.js已安装 (v18.0.0+)
+- [ ] npm 包已安装 (`npm install -g mcp-pubmed-llm-server`) 或从源码安装 (`npm install`)
+- [ ] 环境变量已配置（通过 `.env` 文件或 MCP 客户端配置）
 - [ ] 服务器可正常启动
 - [ ] MCP客户端配置正确
+
+### 📦 安装方式对比
+
+| 方式 | 优点 | 缺点 | 适用场景 |
+|------|------|------|----------|
+| **npm 包安装** | 简单快捷，自动更新，无需管理源码 | 需要配置环境变量 | 生产环境，推荐 |
+| **源码安装** | 可自定义修改，开发调试方便 | 需要手动更新，路径配置复杂 | 开发环境，贡献代码 |
 
 ---
 
@@ -436,7 +624,16 @@ Apache License 2.0
 - **[全文模式与智能下载系统完整指南](docs/FULLTEXT_SMART_DOWNLOAD.md)** - 完整的全文模式和跨平台智能下载使用指南
 - **[EndNote导出功能使用指南](docs/ENDNOTE_EXPORT.md)** - EndNote兼容格式自动导出功能
 - **[配置说明文档](docs/CONFIGURATION.md)** - 环境变量和MCP客户端配置指南
+- **[GitHub Actions 自动发布指南](docs/GITHUB_ACTIONS_PUBLISH.md)** - npm 自动发布工作流说明
 - **[项目结构说明](.cursor/rules/README.md)** - Cursor规则和项目架构说明
+
+---
+
+## 📦 npm 包信息
+
+- **包名**: [mcp-pubmed-llm-server](https://www.npmjs.com/package/mcp-pubmed-llm-server)
+- **安装**: `npm install -g mcp-pubmed-llm-server`
+- **使用**: `npx mcp-pubmed-llm-server` 或 `mcp-pubmed-llm-server`
 
 ---
 
