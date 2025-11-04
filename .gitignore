@@ -1,5 +1,3 @@
 .env
-cache/endnote/index.json
-cache/fulltext/index.json
-cache/index.json
-/node_modules
+cache/
+node_modules/

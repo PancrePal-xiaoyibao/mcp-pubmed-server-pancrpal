@@ -3,12 +3,15 @@ import 'dotenv/config';
 
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import fetch from "node-fetch";
 import fs from 'fs';
 import path from 'path';
 import { spawn, exec } from 'child_process';
 import os from 'os';
+import http from 'http';
+import { URL } from 'url';
 
 const PUBMED_BASE_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils';
 const RATE_LIMIT_DELAY = 334; // PubMed rate limit: 3 requests per second
@@ -46,6 +49,20 @@ const ENDNOTE_EXPORT_FORMATS = ['ris', 'bibtex']; // 支持的导出格式
 const PMC_BASE_URL = 'https://www.ncbi.nlm.nih.gov/pmc';
 const PMC_API_URL = 'https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi';
 const UNPAYWALL_API_URL = 'https://api.unpaywall.org/v2';
+
+// 传输模式配置
+const parseMode = () => {
+    const args = process.argv.slice(2);
+    const modeArg = args.find(arg => arg.startsWith('--mode='));
+    if (modeArg) {
+        return modeArg.split('=')[1];
+    }
+    // 支持环境变量作为备选
+    return process.env.MCP_TRANSPORT || 'stdio';
+};
+
+const MODE = parseMode();
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 class PubMedDataServer {
     constructor() {
@@ -273,9 +290,10 @@ class PubMedDataServer {
         }
     }
 
-    setupRequestHandlers() {
+    setupRequestHandlers(server = null) {
+        const targetServer = server || this.server;
         // 列出可用工具
-        this.server.setRequestHandler(ListToolsRequestSchema, async () => {
+        targetServer.setRequestHandler(ListToolsRequestSchema, async () => {
             return {
                 tools: [
                     {
@@ -599,7 +617,7 @@ class PubMedDataServer {
         });
 
         // 处理工具调用
-        this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+        targetServer.setRequestHandler(CallToolRequestSchema, async (request) => {
             const { name, arguments: args } = request.params;
 
             try {
@@ -3099,6 +3117,14 @@ class PubMedDataServer {
     }
 
     async run() {
+        if (MODE === 'sse') {
+            await this.runSSE();
+        } else {
+            await this.runStdio();
+        }
+    }
+
+    async runStdio() {
         const transport = new StdioServerTransport();
         await this.server.connect(transport);
         console.error("PubMed Data Server v2.0 running on stdio");
@@ -3106,6 +3132,130 @@ class PubMedDataServer {
         if (FULLTEXT_ENABLED) {
             console.error(`[FullTextMode] ${FULLTEXT_MODE} - ${FULLTEXT_AUTO_DOWNLOAD ? 'Auto-download enabled' : 'Manual download only'}`);
         }
+    }
+
+    async runSSE() {
+        // 存储活跃的SSE传输会话（每个会话包含transport和对应的server实例）
+        const sessions = new Map();
+
+        // 创建新Server实例的辅助方法
+        const createServerInstance = () => {
+            const newServer = new Server(
+                {
+                    name: "pubmed-data-server",
+                    version: "2.0.0",
+                },
+                {
+                    capabilities: {
+                        tools: {},
+                    },
+                }
+            );
+            // 复制当前服务器的请求处理器
+            this.setupRequestHandlers(newServer);
+            return newServer;
+        };
+
+        const httpServer = http.createServer(async (req, res) => {
+            const url = new URL(req.url || '/', `http://${req.headers.host}`);
+            const pathname = url.pathname;
+
+            // 处理CORS（如果需要）
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+            if (req.method === 'OPTIONS') {
+                res.writeHead(200).end();
+                return;
+            }
+
+            // GET /sse - 建立SSE连接
+            if (req.method === 'GET' && pathname === '/sse') {
+                const endpoint = '/message';
+                const transport = new SSEServerTransport(endpoint, res);
+                
+                // 为每个连接创建独立的Server实例
+                const sessionServer = createServerInstance();
+                
+                // 设置传输的事件处理器
+                transport.onclose = () => {
+                    const sessionId = transport.sessionId;
+                    sessions.delete(sessionId);
+                    console.error(`[SSE] Session ${sessionId} closed`);
+                };
+
+                transport.onerror = (error) => {
+                    console.error(`[SSE] Transport error:`, error);
+                };
+
+                // 连接独立的服务器实例（connect()会自动调用transport.start()）
+                await sessionServer.connect(transport);
+                
+                // 存储会话（包含transport和server实例）
+                sessions.set(transport.sessionId, { transport, server: sessionServer });
+                
+                console.error(`[SSE] New session established: ${transport.sessionId}`);
+                return;
+            }
+
+            // POST /message - 接收客户端消息
+            if (req.method === 'POST' && pathname === '/message') {
+                const sessionId = url.searchParams.get('sessionId');
+                
+                if (!sessionId) {
+                    res.writeHead(400).end('Missing sessionId parameter');
+                    return;
+                }
+
+                const session = sessions.get(sessionId);
+                if (!session) {
+                    res.writeHead(404).end('Session not found');
+                    return;
+                }
+
+                try {
+                    await session.transport.handlePostMessage(req, res);
+                } catch (error) {
+                    console.error(`[SSE] Error handling POST message:`, error);
+                    if (!res.headersSent) {
+                        res.writeHead(500).end('Internal server error');
+                    }
+                }
+                return;
+            }
+
+            // 健康检查端点
+            if (req.method === 'GET' && pathname === '/health') {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ 
+                    status: 'ok', 
+                    mode: 'sse',
+                    sessions: sessions.size 
+                }));
+                return;
+            }
+
+            // 404处理
+            res.writeHead(404).end('Not found');
+        });
+
+        httpServer.listen(PORT, () => {
+            console.error("PubMed Data Server v2.0 running on SSE");
+            console.error(`[SSE] Server listening on http://0.0.0.0:${PORT}`);
+            console.error(`[SSE] SSE endpoint: http://0.0.0.0:${PORT}/sse`);
+            console.error(`[SSE] Message endpoint: http://0.0.0.0:${PORT}/message`);
+            console.error(`[SSE] Health check: http://0.0.0.0:${PORT}/health`);
+            console.error(`[AbstractMode] ${ABSTRACT_MODE} (max_chars=${ABSTRACT_MAX_CHARS}) - ${ABSTRACT_MODE_NOTE}`);
+            if (FULLTEXT_ENABLED) {
+                console.error(`[FullTextMode] ${FULLTEXT_MODE} - ${FULLTEXT_AUTO_DOWNLOAD ? 'Auto-download enabled' : 'Manual download only'}`);
+            }
+        });
+
+        httpServer.on('error', (error) => {
+            console.error(`[SSE] Server error:`, error);
+            process.exit(1);
+        });
     }
 }
 

@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
+    "start:stdio": "node src/index.js --mode=stdio",
+    "start:sse": "node src/index.js --mode=sse",
     "dev": "node --watch src/index.js",
     "build": "echo 'No build step required'",
     "test": "node test/test.js",
