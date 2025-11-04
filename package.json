@@ -20,7 +20,7 @@
     "research",
     "openai"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "PancrePal-xiaoyibao Team",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.4.0",
@@ -33,12 +33,20 @@
   "engines": {
     "node": ">=18.0.0"
   },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/mcp-pubmed-llm-server.git"
+    "url": "https://github.com/PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/mcp-pubmed-llm-server/issues"
+    "url": "https://github.com/PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal/issues"
   },
-  "homepage": "https://github.com/yourusername/mcp-pubmed-llm-server#readme"
+  "homepage": "https://github.com/PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal#readme"
 }

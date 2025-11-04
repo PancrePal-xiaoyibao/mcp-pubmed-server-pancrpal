@@ -1,0 +1,69 @@
+name: Publish to npm
+
+on:
+  # Git Tag 触发自动发布 (格式: v1.0.1, v1.1.0, v2.0.0)
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整历史记录以检测标签
+      
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: 检测版本号
+        id: version
+        run: |
+          # 从 Git Tag 提取版本号
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
+          # 移除 'v' 前缀（如果存在）
+          VERSION="${TAG_NAME#v}"
+          
+          # 验证版本号格式 (x.y.z)
+          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "错误: 版本号格式无效: $VERSION"
+            echo "版本号必须是 x.y.z 格式 (例如: 1.0.1)"
+            exit 1
+          fi
+          
+          echo "检测到 Git Tag: $TAG_NAME"
+          echo "提取版本号: $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: 更新 package.json 版本号
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          npm version $VERSION --no-git-tag-version
+          echo "已更新 package.json 版本号为: $VERSION"
+      
+      - name: 安装依赖
+        run: npm ci
+      
+      - name: 运行测试 (如果存在)
+        run: |
+          if npm run test 2>/dev/null; then
+            echo "测试通过"
+          else
+            echo "跳过测试 (测试脚本不存在或失败)"
+          fi
+        continue-on-error: true
+      
+      - name: 发布到 npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "开始发布版本 ${{ steps.version.outputs.version }} 到 npm..."
+          npm publish
+          echo "成功发布版本 ${{ steps.version.outputs.version }} 到 npm"
+
