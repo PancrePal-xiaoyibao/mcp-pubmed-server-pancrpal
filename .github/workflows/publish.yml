@@ -5,6 +5,14 @@ on:
   push:
     tags:
       - 'v*'
+  
+  # 手动触发发布（用于重试或手动发布）
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '版本号 (例如: 1.0.1, 1.1.0, 2.0.0)'
+        required: true
+        type: string
 
 jobs:
   publish:
@@ -25,10 +33,18 @@ jobs:
       - name: 检测版本号
         id: version
         run: |
-          # 从 Git Tag 提取版本号
-          TAG_NAME="${GITHUB_REF#refs/tags/}"
-          # 移除 'v' 前缀（如果存在）
-          VERSION="${TAG_NAME#v}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # 手动触发：使用输入的版本号
+            VERSION="${{ github.event.inputs.version }}"
+            echo "手动触发，使用输入的版本号: $VERSION"
+          else
+            # Tag 触发：从 Git Tag 提取版本号
+            TAG_NAME="${GITHUB_REF#refs/tags/}"
+            # 移除 'v' 前缀（如果存在）
+            VERSION="${TAG_NAME#v}"
+            echo "检测到 Git Tag: $TAG_NAME"
+            echo "提取版本号: $VERSION"
+          fi
           
           # 验证版本号格式 (x.y.z)
           if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
@@ -37,8 +53,7 @@ jobs:
             exit 1
           fi
           
-          echo "检测到 Git Tag: $TAG_NAME"
-          echo "提取版本号: $VERSION"
+          echo "最终版本号: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
       
       - name: 更新 package.json 版本号
