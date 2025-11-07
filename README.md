@@ -102,7 +102,7 @@ npx mcp-pubmed-llm-server
 
 ```bash
 # 克隆仓库
-git clone [项目地址] mcp-pubmed-server
+git clone git@github.com:PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal.git mcp-pubmed-server
 cd mcp-pubmed-server
 
 # 安装依赖
