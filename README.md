@@ -493,7 +493,23 @@ cp config/claude_desktop_config.json.example config/claude_desktop_config.json
 
 ## ☁️ 云端部署指南
 
-### SSE模式云端部署
+### 方法一：Docker 部署（推荐）
+
+我们提供了完整的 Docker 部署方案，支持快速启动和数据持久化。详细说明请参考 [Docker 部署文档](docs/DOCKER_README.md)。
+
+#### 快速开始
+```bash
+# 克隆仓库
+git clone https://github.com/yourusername/mcp-pubmed-server-pancrpal.git
+cd mcp-pubmed-server-pancrpal
+
+# 使用 Docker Compose 启动服务
+docker-compose up -d
+
+# 服务将在 http://localhost:3000 上运行
+```
+
+### 方法二：SSE模式云端部署
 
 SSE模式专为云端部署设计，支持远程访问和多客户端并发连接。
 
