@@ -1,0 +1,23 @@
+services:
+  pubmed-server:
+    build: .
+    container_name: mcp-pubmed-server
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - PUBMED_API_KEY=${PUBMED_API_KEY}
+      - PUBMED_EMAIL=${PUBMED_EMAIL}
+      - ABSTRACT_MODE=${ABSTRACT_MODE:-quick}
+      - FULLTEXT_MODE=${FULLTEXT_MODE:-disabled}
+      - ENDNOTE_EXPORT=${ENDNOTE_EXPORT:-enabled}
+      - PORT=${PORT:-3000}
+      - MCP_TRANSPORT=sse
+    volumes:
+      - ./cache:/app/cache
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

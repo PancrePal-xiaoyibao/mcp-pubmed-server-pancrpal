@@ -72,7 +72,7 @@
 > **💡 新功能：支持SSE模式云端部署！** 现在可以通过 `npm run start:sse` 启动SSE服务器，支持远程访问和多客户端并发连接。详见[云端部署指南](#☁️-云端部署指南)
 
 ### 前置要求
-安装Node.js (v18.0.0+)：[nodejs.org](https://nodejs.org/)
+安装Node.js (v22.0.0+ LTS)：[nodejs.org](https://nodejs.org/)
 
 ### 方式一：使用 npm 安装（推荐）
 
@@ -493,7 +493,23 @@ cp config/claude_desktop_config.json.example config/claude_desktop_config.json
 
 ## ☁️ 云端部署指南
 
-### SSE模式云端部署
+### 方法一：Docker 部署（推荐）
+
+我们提供了完整的 Docker 部署方案，支持快速启动和数据持久化。详细说明请参考 [Docker 部署文档](docs/DOCKER_README.md)。
+
+#### 快速开始
+```bash
+# 克隆仓库
+git clone https://github.com/yourusername/mcp-pubmed-server-pancrpal.git
+cd mcp-pubmed-server-pancrpal
+
+# 使用 Docker Compose 启动服务
+docker-compose up -d
+
+# 服务将在 http://localhost:3000 上运行
+```
+
+### 方法二：SSE模式云端部署
 
 SSE模式专为云端部署设计，支持远程访问和多客户端并发连接。
 
@@ -501,7 +517,7 @@ SSE模式专为云端部署设计，支持远程访问和多客户端并发连�
 
 1. **准备服务器环境**
    ```bash
-   # 安装Node.js (v18.0.0+)
+   # 安装Node.js (v22.0.0+ LTS)
    # 克隆或上传项目到服务器
    git clone [项目地址]
    cd mcp-pubmed-server-pancrpal
@@ -770,7 +786,7 @@ mcp-pubmed-server/
    - 查看服务器日志获取详细错误信息
 
 ### 部署清单
-- [ ] Node.js已安装 (v18.0.0+)
+- [ ] Node.js已安装 (v22.0.0+ LTS)
 - [ ] npm 包已安装 (`npm install -g mcp-pubmed-llm-server`) 或从源码安装 (`npm install`)
 - [ ] 环境变量已配置（通过 `.env` 文件或 MCP 客户端配置）
 - [ ] 服务器可正常启动
