@@ -72,7 +72,7 @@
 > **💡 新功能：支持SSE模式云端部署！** 现在可以通过 `npm run start:sse` 启动SSE服务器，支持远程访问和多客户端并发连接。详见[云端部署指南](#☁️-云端部署指南)
 
 ### 前置要求
-安装Node.js (v18.0.0+)：[nodejs.org](https://nodejs.org/)
+安装Node.js (v22.0.0+ LTS)：[nodejs.org](https://nodejs.org/)
 
 ### 方式一：使用 npm 安装（推荐）
 
@@ -517,7 +517,7 @@ SSE模式专为云端部署设计，支持远程访问和多客户端并发连�
 
 1. **准备服务器环境**
    ```bash
-   # 安装Node.js (v18.0.0+)
+   # 安装Node.js (v22.0.0+ LTS)
    # 克隆或上传项目到服务器
    git clone [项目地址]
    cd mcp-pubmed-server-pancrpal
@@ -786,7 +786,7 @@ mcp-pubmed-server/
    - 查看服务器日志获取详细错误信息
 
 ### 部署清单
-- [ ] Node.js已安装 (v18.0.0+)
+- [ ] Node.js已安装 (v22.0.0+ LTS)
 - [ ] npm 包已安装 (`npm install -g mcp-pubmed-llm-server`) 或从源码安装 (`npm install`)
 - [ ] 环境变量已配置（通过 `.env` 文件或 MCP 客户端配置）
 - [ ] 服务器可正常启动

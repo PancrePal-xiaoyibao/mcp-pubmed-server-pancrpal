@@ -68,7 +68,7 @@
 ### 工作流步骤
 
 1. **检出代码** - 获取最新代码和完整 Git 历史
-2. **设置 Node.js** - 安装 Node.js 18 并配置 npm registry
+2. **设置 Node.js** - 安装 Node.js 22 并配置 npm registry
 3. **检测版本号** - 从 Git Tag 中提取版本号（移除 `v` 前缀）
 4. **验证版本号** - 确保版本号格式为 `x.y.z`
 5. **更新 package.json** - 自动更新版本号
