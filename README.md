@@ -172,6 +172,21 @@ PORT=8080 node src/index.js --mode=sse
 - `POST /message` - 接收客户端消息（需要sessionId参数）
 - `GET /health` - 健康检查端点
 
+#### **Streamable HTTP 模式（Docker 网关）** - 远程 MCP 客户端推荐（Cherry Studio）
+
+部分远程 MCP 客户端更偏好 `streamableHttp` 传输（统一的 `/mcp` 端点 + 会话头）。
+
+本仓库提供了一个 **Docker 网关**：对外暴露 `streamableHttp`，内部仍以 `stdio` 启动本服务并转发请求。
+
+**端点：**
+- `POST /mcp` - 发送 JSON-RPC（首次必须是 `initialize`，返回 `Mcp-Session-Id`）
+- `GET /mcp` - 服务器事件流（带 `Mcp-Session-Id`）
+- `DELETE /mcp` - 关闭会话（带 `Mcp-Session-Id`）
+- `GET /health` - 健康检查端点
+
+**部署：**
+详见 `deploy/streamable-http/README.md`（默认宿主机对外端口 `8745`）。
+
 **环境变量配置：**
 ```env
 # SSE模式端口配置（可选，默认3000）

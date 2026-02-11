@@ -888,7 +888,8 @@ class PubMedDataServer {
         const data = await response.json();
 
         const articles = ids.map(id => {
-            const article = data.result[id];
+            // PubMed `esummary` can occasionally omit an id entry; guard to avoid crashes.
+            const article = data?.result?.[id] ?? {};
             return {
                 pmid: id,
                 title: article.title || 'No title',
