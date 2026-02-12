@@ -1,23 +1,42 @@
 import fetch from 'node-fetch';
 import { URL } from 'url';
 import {
-    PUBMED_BASE_URL, RATE_LIMIT_DELAY, REQUEST_TIMEOUT, ABSTRACT_MODE
+    PUBMED_BASE_URL, REQUEST_TIMEOUT, ABSTRACT_MODE
 } from '../config.js';
+import { ApiKeyPool } from './key-pool.js';
 
 export class PubMedClient {
-    constructor({ memoryCache, fileCache }) {
+    constructor({ memoryCache, fileCache, apiKeyPool }) {
         this.memoryCache = memoryCache;
         this.fileCache = fileCache;
+        this.apiKeyPool = apiKeyPool || new ApiKeyPool();
         this.lastRequestTime = 0;
     }
 
     async enforceRateLimit() {
+        const delay = this.apiKeyPool.getRateLimitDelay();
         const now = Date.now();
         const timeSinceLastRequest = now - this.lastRequestTime;
-        if (timeSinceLastRequest < RATE_LIMIT_DELAY) {
-            await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_DELAY - timeSinceLastRequest));
+        if (timeSinceLastRequest < delay) {
+            await new Promise(resolve => setTimeout(resolve, delay - timeSinceLastRequest));
         }
         this.lastRequestTime = Date.now();
+    }
+
+    /**
+     * Apply API key credentials to a URL.
+     * Returns the key object used (for health reporting), or null if no key.
+     */
+    _applyCredentials(url) {
+        const key = this.apiKeyPool.getKey();
+        url.searchParams.append('tool', 'mcp-pubmed-server');
+        if (key) {
+            url.searchParams.append('email', key.email);
+            url.searchParams.append('api_key', key.apiKey);
+        } else {
+            url.searchParams.append('email', process.env.PUBMED_EMAIL || 'user@example.com');
+        }
+        return key;
     }
 
     async search(query, maxResults = 20, daysBack = 0, sortBy = "relevance") {
@@ -52,19 +71,23 @@ export class PubMedClient {
         searchUrl.searchParams.append('retmax', maxResults.toString());
         searchUrl.searchParams.append('retmode', 'json');
         searchUrl.searchParams.append('sort', sortMap[sortBy] || 'relevance');
-        searchUrl.searchParams.append('tool', 'mcp-pubmed-server');
-        searchUrl.searchParams.append('email', process.env.PUBMED_EMAIL || 'user@example.com');
+        const usedKey = this._applyCredentials(searchUrl);
 
-        if (process.env.PUBMED_API_KEY) {
-            searchUrl.searchParams.append('api_key', process.env.PUBMED_API_KEY);
+        let response;
+        try {
+            response = await fetch(searchUrl.toString(), {
+                timeout: REQUEST_TIMEOUT
+            });
+        } catch (error) {
+            if (usedKey) this.apiKeyPool.reportFailure(usedKey.apiKey);
+            throw error;
         }
 
-        const response = await fetch(searchUrl.toString(), {
-            timeout: REQUEST_TIMEOUT
-        });
         if (!response.ok) {
+            if (usedKey) this.apiKeyPool.reportFailure(usedKey.apiKey);
             throw new Error(`PubMed search failed: ${response.statusText}`);
         }
+        if (usedKey) this.apiKeyPool.reportSuccess(usedKey.apiKey);
 
         const data = await response.json();
         const ids = data.esearchresult?.idlist || [];
@@ -120,19 +143,23 @@ export class PubMedClient {
         summaryUrl.searchParams.append('db', 'pubmed');
         summaryUrl.searchParams.append('id', ids.join(','));
         summaryUrl.searchParams.append('retmode', 'json');
-        summaryUrl.searchParams.append('tool', 'mcp-pubmed-server');
-        summaryUrl.searchParams.append('email', process.env.PUBMED_EMAIL || 'user@example.com');
+        const usedKey = this._applyCredentials(summaryUrl);
 
-        if (process.env.PUBMED_API_KEY) {
-            summaryUrl.searchParams.append('api_key', process.env.PUBMED_API_KEY);
+        let response;
+        try {
+            response = await fetch(summaryUrl.toString(), {
+                timeout: REQUEST_TIMEOUT
+            });
+        } catch (error) {
+            if (usedKey) this.apiKeyPool.reportFailure(usedKey.apiKey);
+            throw error;
         }
 
-        const response = await fetch(summaryUrl.toString(), {
-            timeout: REQUEST_TIMEOUT
-        });
         if (!response.ok) {
+            if (usedKey) this.apiKeyPool.reportFailure(usedKey.apiKey);
             throw new Error(`Failed to fetch article details: ${response.statusText}`);
         }
+        if (usedKey) this.apiKeyPool.reportSuccess(usedKey.apiKey);
 
         const data = await response.json();
 
@@ -181,19 +208,23 @@ export class PubMedClient {
         abstractUrl.searchParams.append('id', pmid);
         abstractUrl.searchParams.append('rettype', 'abstract');
         abstractUrl.searchParams.append('retmode', 'text');
-        abstractUrl.searchParams.append('tool', 'mcp-pubmed-server');
-        abstractUrl.searchParams.append('email', process.env.PUBMED_EMAIL || 'user@example.com');
+        const usedKey = this._applyCredentials(abstractUrl);
 
-        if (process.env.PUBMED_API_KEY) {
-            abstractUrl.searchParams.append('api_key', process.env.PUBMED_API_KEY);
+        let response;
+        try {
+            response = await fetch(abstractUrl.toString(), {
+                timeout: REQUEST_TIMEOUT
+            });
+        } catch (error) {
+            if (usedKey) this.apiKeyPool.reportFailure(usedKey.apiKey);
+            throw error;
         }
 
-        const response = await fetch(abstractUrl.toString(), {
-            timeout: REQUEST_TIMEOUT
-        });
         if (!response.ok) {
+            if (usedKey) this.apiKeyPool.reportFailure(usedKey.apiKey);
             throw new Error(`Failed to fetch abstract: ${response.statusText}`);
         }
+        if (usedKey) this.apiKeyPool.reportSuccess(usedKey.apiKey);
 
         return await response.text();
     }

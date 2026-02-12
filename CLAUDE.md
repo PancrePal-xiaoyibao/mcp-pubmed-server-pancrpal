@@ -49,7 +49,8 @@ src/
 │   ├── memory-cache.js       # 内存 LRU 缓存
 │   └── file-cache.js         # 文件持久化缓存（papers 目录）
 ├── api/
-│   └── pubmed-client.js      # PubMed EUtilities API 客户端
+│   ├── pubmed-client.js      # PubMed EUtilities API 客户端
+│   └── key-pool.js           # API Key 号池管理器
 ├── services/
 │   ├── fulltext.js           # OA 检测 + PDF 下载管理
 │   ├── endnote.js            # EndNote 导出（RIS/BibTeX）
@@ -59,7 +60,7 @@ src/
 │   └── handlers.js           # 工具调用路由 + 处理方法
 ├── transport/
 │   ├── stdio.js              # stdio 传输
-│   └── sse.js                # SSE HTTP 传输
+│   └── streamable-http.js    # Streamable HTTP 传输
 └── utils/
     └── formatter.js          # LLM 格式化 + 文本处理工具
 ```
@@ -94,14 +95,15 @@ src/
 
 ### 关键配置参数
 - **ABSTRACT_MODE**: 控制摘要长度（quick: 1500字符, deep: 6000字符）
-- **速率限制**: 334ms间隔（PubMed API限制：每秒3次请求）
+- **速率限制**: 自适应，有 Key 时 100ms（10 req/sec），无 Key 时 334ms（3 req/sec）
 - **缓存策略**: 内存缓存5分钟过期，文件缓存30天过期
 
 ## 开发注意事项
 
 ### PubMed API 集成
 - 使用 EUtilities API (esearch, esummary, efetch)
-- 需要配置 API_KEY 和 EMAIL 环境变量
+- 需要配置 API_KEY 和 EMAIL 环境变量（均为可选）
+- 支持多 Key 号池（api-keys.json），实现轮询/故障切换/负载均衡
 - 实现了速率限制和错误重试机制
 
 ### 缓存管理
@@ -131,15 +133,15 @@ node src/index.js
 ```
 
 ### 部署配置
-项目支持三种传输模式：
+项目支持两种传输模式：
 - **stdio**: 本地 MCP 客户端集成（默认）
-- **SSE**: 云端部署，`node src/index.js --mode=sse`
-- **Streamable HTTP**: Docker 部署，见 `docker/`
+- **Streamable HTTP**: 服务端部署，`node src/index.js --mode=streamableHttp` 或 Docker 部署
 
 ### 环境变量
-- `PUBMED_API_KEY`: NCBI API密钥（必需）
-- `PUBMED_EMAIL`: 用于API请求的邮箱（必需）
+- `PUBMED_API_KEY`: NCBI API密钥（可选，无 Key 时限速 3 次/秒）
+- `PUBMED_EMAIL`: 用于API请求的邮箱（可选）
 - `ABSTRACT_MODE`: 摘要模式（可选，默认quick）
+- `PORT`: Streamable HTTP 端口（可选，默认8745）
 
 ## 项目结构原则
 

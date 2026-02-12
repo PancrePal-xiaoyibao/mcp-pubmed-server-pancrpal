@@ -4,12 +4,13 @@ import { MODE, FULLTEXT_ENABLED, ENDNOTE_EXPORT_ENABLED } from './config.js';
 import { MemoryCache } from './cache/memory-cache.js';
 import { FileCache } from './cache/file-cache.js';
 import { PubMedClient } from './api/pubmed-client.js';
+import { ApiKeyPool } from './api/key-pool.js';
 import { FulltextService } from './services/fulltext.js';
 import { EndNoteService } from './services/endnote.js';
 import { getToolDefinitions } from './tools/definitions.js';
 import { ToolHandlers } from './tools/handlers.js';
 import { startStdio } from './transport/stdio.js';
-import { startSSE } from './transport/sse.js';
+import { startStreamableHttp } from './transport/streamable-http.js';
 
 export class PubMedDataServer {
     constructor() {
@@ -30,10 +31,14 @@ export class PubMedDataServer {
         this.fileCache = new FileCache();
         this.fileCache.initDirectories();
 
+        // 初始化 API Key 池
+        this.apiKeyPool = new ApiKeyPool();
+
         // 初始化 API 客户端
         this.pubmedClient = new PubMedClient({
             memoryCache: this.memoryCache,
-            fileCache: this.fileCache
+            fileCache: this.fileCache,
+            apiKeyPool: this.apiKeyPool
         });
 
         // 初始化可选服务
@@ -54,7 +59,8 @@ export class PubMedDataServer {
             memoryCache: this.memoryCache,
             fileCache: this.fileCache,
             fulltextService: this.fulltextService,
-            endnoteService: this.endnoteService
+            endnoteService: this.endnoteService,
+            apiKeyPool: this.apiKeyPool
         });
 
         // 注册请求处理器
@@ -90,8 +96,8 @@ export class PubMedDataServer {
     }
 
     async run() {
-        if (MODE === 'sse') {
-            await startSSE((server) => this.setupRequestHandlers(server));
+        if (MODE === 'streamableHttp') {
+            await startStreamableHttp((server) => this.setupRequestHandlers(server));
         } else {
             await startStdio(this.server);
         }

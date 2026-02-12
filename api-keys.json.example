@@ -1,0 +1,13 @@
+{
+  "keys": [
+    {
+      "api_key": "your_first_ncbi_api_key",
+      "email": "user1@example.com"
+    },
+    {
+      "api_key": "your_second_ncbi_api_key",
+      "email": "user2@example.com"
+    }
+  ],
+  "strategy": "round-robin"
+}

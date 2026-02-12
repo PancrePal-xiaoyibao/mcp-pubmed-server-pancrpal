@@ -46,12 +46,16 @@ cd mcp-pubmed-server-pancrpal && npm install
 cp .env.example .env
 ```
 
-编辑 `.env`，填入必需配置：
+编辑 `.env`，填入配置：
 
 ```env
-PUBMED_API_KEY=你的NCBI_API密钥    # 必需，https://www.ncbi.nlm.nih.gov/account/settings/
-PUBMED_EMAIL=你的邮箱地址            # 必需
+PUBMED_API_KEY=你的NCBI_API密钥    # 可选，https://www.ncbi.nlm.nih.gov/account/settings/
+PUBMED_EMAIL=你的邮箱地址            # 可选（建议填写）
 ```
+
+> **说明：** API Key 和 Email 均非必填。无 Key 时以匿名模式运行（限速 3 次/秒），有 Key 时提升至 10 次/秒。
+
+**多 API Key 池（可选）：** 支持多个 Key 轮询/主备/随机负载均衡，参见下方 [API Key 池配置](#api-key-池配置) 章节。
 
 可选配置：
 
@@ -77,13 +81,12 @@ node src/index.js
 
 ## 传输模式
 
-服务器支持三种传输模式，适用于不同场景：
+服务器支持两种传输模式，适用于不同场景：
 
 | 模式 | 适用场景 | 启动方式 |
 |------|----------|----------|
 | **stdio** | 本地 MCP 客户端集成 | `node src/index.js` (默认) |
-| **SSE** | 云端部署，远程访问 | `node src/index.js --mode=sse` |
-| **Streamable HTTP** | Docker 部署，Cherry Studio 等远程客户端 | Docker Compose |
+| **Streamable HTTP** | 服务端远程部署 | `node src/index.js --mode=streamableHttp` |
 
 ### stdio 模式（默认）
 
@@ -95,44 +98,31 @@ node src/index.js --mode=stdio
 npm run start:stdio
 ```
 
-### SSE 模式
+### Streamable HTTP 模式（服务端部署）
 
-基于 HTTP Server-Sent Events，支持多客户端并发。
+MCP 2025-11-25 规范推荐的 HTTP 传输方式，统一的 `/mcp` 端点 + 会话管理。适用于 Cherry Studio 等远程 MCP 客户端。默认端口 `8745`。
+
+**方式一：直接运行**
 
 ```bash
-PORT=3000 node src/index.js --mode=sse
+node src/index.js --mode=streamableHttp
 # 或
-npm run start:sse
+npm run start:streamableHttp
 ```
 
-端点：
-- `GET /sse` — 建立 SSE 连接
-- `POST /message?sessionId=xxx` — 发送消息
-- `GET /health` — 健康检查
-
-验证：
-```bash
-curl http://localhost:3000/health
-# {"status":"ok","mode":"sse","sessions":0}
-```
-
-### Streamable HTTP 模式（Docker）
-
-对外暴露 `streamableHttp` 协议（统一的 `/mcp` 端点 + 会话头），内部以 stdio 启动 PubMed 服务并转发请求。适用于 Cherry Studio 等远程 MCP 客户端。
-
-**部署步骤：**
+**方式二：Docker 部署**
 
 ```bash
 cd docker
 cp .env.example .env
-# 编辑 .env，填入 PUBMED_API_KEY 和 PUBMED_EMAIL
+# 编辑 .env，填入 PUBMED_API_KEY 和 PUBMED_EMAIL（均为可选）
 
 docker compose up -d --build
 ```
 
 **验证：**
 ```bash
-curl http://127.0.0.1:8745/health
+curl http://localhost:8745/health
 # {"status":"ok","mode":"streamableHttp","sessions":0}
 ```
 
@@ -166,6 +156,8 @@ location / {
 
 ### Cline / Claude Desktop / Claude Code
 
+**stdio 模式（本地运行）：**
+
 ```json
 {
   "mcpServers": {
@@ -173,8 +165,8 @@ location / {
       "command": "npx",
       "args": ["-y", "mcp-pubmed-llm-server"],
       "env": {
-        "PUBMED_API_KEY": "你的API密钥",
-        "PUBMED_EMAIL": "你的邮箱地址",
+        "PUBMED_API_KEY": "你的API密钥（可选）",
+        "PUBMED_EMAIL": "你的邮箱地址（可选）",
         "ABSTRACT_MODE": "deep",
         "FULLTEXT_MODE": "enabled"
       }
@@ -182,6 +174,8 @@ location / {
   }
 }
 ```
+
+> **说明：** `PUBMED_API_KEY` 和 `PUBMED_EMAIL` 均为可选。不填则以匿名模式运行（限速 3 次/秒），填写后提升至 10 次/秒。如需多 Key 池，参见 [API Key 池配置](#api-key-池配置)。
 
 配置文件位置：
 - **Cline**: VS Code 设置中的 MCP Servers 配置
@@ -203,15 +197,15 @@ location / {
       "command": "npx",
       "args": ["-y", "mcp-pubmed-llm-server"],
       "env": {
-        "PUBMED_API_KEY": "你的API密钥",
-        "PUBMED_EMAIL": "你的邮箱地址"
+        "PUBMED_API_KEY": "你的API密钥（可选）",
+        "PUBMED_EMAIL": "你的邮箱地址（可选）"
       }
     }
   }
 }
 ```
 
-**streamableHttp 模式（Docker 部署后）：**
+**streamableHttp 模式（远程部署）：**
 - type: `streamableHttp`
 - baseUrl: `http://<服务器IP>:8745/mcp`
 
@@ -258,6 +252,62 @@ location / {
 
 ---
 
+## API Key 池配置
+
+支持多个 NCBI API Key 的轮询、主备切换和随机负载均衡，提高并发能力和容错性。
+
+### 配置方式
+
+**方式一：`api-keys.json` 文件（多 Key，推荐）**
+
+在项目根目录创建 `api-keys.json`（参见 `api-keys.json.example`）：
+
+```json
+{
+  "keys": [
+    {
+      "api_key": "你的第一个NCBI_API密钥",
+      "email": "user1@example.com"
+    },
+    {
+      "api_key": "你的第二个NCBI_API密钥",
+      "email": "user2@example.com"
+    }
+  ],
+  "strategy": "round-robin"
+}
+```
+
+**方式二：环境变量（单 Key，向后兼容）**
+
+```env
+PUBMED_API_KEY=你的NCBI_API密钥
+PUBMED_EMAIL=你的邮箱地址
+```
+
+**方式三：无 Key（匿名模式）**
+
+不配置任何 Key，以匿名模式运行（限速 3 次/秒）。
+
+> **优先级：** `api-keys.json` > 环境变量 > 匿名模式
+
+### Key 选择策略
+
+| 策略 | 说明 |
+|------|------|
+| `round-robin` | 轮询（默认），每次请求依次选用下一个 Key |
+| `failover` | 主备切换，优先使用第一个 Key，失败时切换到下一个 |
+| `random` | 随机选择，均匀分散请求 |
+
+### 健康管理
+
+- 连续 3 次失败自动标记为不可用
+- 60 秒冷却后自动恢复
+- 所有 Key 不可用时强制恢复最早失败的 Key
+- 通过 `pubmed_system_check` 工具可查看 Key 池状态
+
+---
+
 ## 项目结构
 
 ```
@@ -267,7 +317,8 @@ mcp-pubmed-server/
 │   ├── config.js               # 配置常量
 │   ├── server.js               # 主编排器
 │   ├── api/
-│   │   └── pubmed-client.js    # PubMed API 客户端
+│   │   ├── pubmed-client.js    # PubMed API 客户端
+│   │   └── key-pool.js         # API Key 号池管理器
 │   ├── cache/
 │   │   ├── memory-cache.js     # 内存 LRU 缓存
 │   │   └── file-cache.js       # 文件持久化缓存
@@ -280,18 +331,18 @@ mcp-pubmed-server/
 │   │   └── handlers.js         # 工具调用路由
 │   ├── transport/
 │   │   ├── stdio.js            # stdio 传输
-│   │   └── sse.js              # SSE 传输
+│   │   └── streamable-http.js  # Streamable HTTP 传输
 │   └── utils/
 │       └── formatter.js        # LLM 格式化
-├── docker/                     # Docker 部署（streamableHttp）
+├── docker/                     # Docker 部署
 │   ├── Dockerfile
 │   ├── docker-compose.yml
-│   ├── .env.example
-│   └── gateway/                # streamableHttp 网关
+│   └── .env.example
 ├── docs/
 │   ├── FULLTEXT_SMART_DOWNLOAD.md
 │   ├── ENDNOTE_EXPORT.md
 │   └── GITHUB_ACTIONS_PUBLISH.md
+├── api-keys.json.example       # 多 Key 池配置模板
 ├── .env.example
 ├── package.json
 ├── LICENSE
@@ -305,9 +356,10 @@ mcp-pubmed-server/
 | 问题 | 解决方案 |
 |------|----------|
 | 找不到 `@modelcontextprotocol/sdk` | `npm install -g mcp-pubmed-llm-server` 或 `npm install` |
-| PubMed API 调用失败 | 检查 API 密钥、网络连接，等待速率限制重置 |
+| PubMed API 调用失败 | 检查网络连接；有 Key 时确认 Key 有效，无 Key 时等待速率限制重置（3 次/秒） |
 | 环境变量未生效 | 确认 `.env` 文件存在且变量名正确 |
-| SSE 端口被占用 | `lsof -i :3000` (macOS/Linux) 或 `netstat -ano \| findstr :3000` (Windows) |
+| Key 池全部不可用 | 检查 `api-keys.json` 中的 Key 是否有效；60 秒后会自动恢复 |
+| 端口被占用 | `lsof -i :8745` (macOS/Linux) 或 `netstat -ano \| findstr :8745` (Windows)，或改用 `PORT=其他端口` 启动 |
 | Docker 健康检查失败 | 检查 `.env` 配置，查看 `docker logs pubmed-mcp` |
 
 ---

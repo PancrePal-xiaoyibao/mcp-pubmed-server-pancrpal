@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node src/index.js",
     "start:stdio": "node src/index.js --mode=stdio",
-    "start:sse": "node src/index.js --mode=sse",
+    "start:streamableHttp": "node src/index.js --mode=streamableHttp",
     "dev": "node --watch src/index.js",
     "build": "echo 'No build step required'",
     "test": "node test/test.js",
@@ -28,9 +28,11 @@
   "author": "PancrePal-xiaoyibao Team",
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.4.0",
+    "@modelcontextprotocol/sdk": "^1.26.0",
     "node-fetch": "^3.3.2",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "express": "^4.21.2",
+    "zod": "^3.25.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0"

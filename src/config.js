@@ -38,15 +38,27 @@ export const PMC_API_URL = 'https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi';
 export const UNPAYWALL_API_URL = 'https://api.unpaywall.org/v2';
 
 // 传输模式配置
+const VALID_MODES = ['stdio', 'streamableHttp'];
+
 const parseMode = () => {
     const args = process.argv.slice(2);
     const modeArg = args.find(arg => arg.startsWith('--mode='));
     if (modeArg) {
-        return modeArg.split('=')[1];
+        const mode = modeArg.split('=')[1];
+        if (!VALID_MODES.includes(mode)) {
+            console.error(`[Config] Warning: Unknown mode '${mode}', valid modes: ${VALID_MODES.join(', ')}. Falling back to stdio`);
+            return 'stdio';
+        }
+        return mode;
     }
     // 支持环境变量作为备选
-    return process.env.MCP_TRANSPORT || 'stdio';
+    const envMode = process.env.MCP_TRANSPORT || 'stdio';
+    if (!VALID_MODES.includes(envMode)) {
+        console.error(`[Config] Warning: Unknown MCP_TRANSPORT '${envMode}', falling back to stdio`);
+        return 'stdio';
+    }
+    return envMode;
 };
 
 export const MODE = parseMode();
-export const PORT = parseInt(process.env.PORT || '3000', 10);
+export const PORT = parseInt(process.env.PORT || '8745', 10);

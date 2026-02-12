@@ -4,6 +4,7 @@ export function getToolDefinitions() {
     const tools = [
         {
             name: "pubmed_search",
+            title: "PubMed Literature Search",
             description: "搜索PubMed文献并返回结构化数据，供LLM进一步分析",
             inputSchema: {
                 type: "object",
@@ -51,10 +52,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["query"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_quick_search",
+            title: "PubMed Quick Search",
             description: "快速搜索PubMed文献，返回精简结果，优化响应速度",
             inputSchema: {
                 type: "object",
@@ -72,10 +79,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["query"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_cache_info",
+            title: "Cache Management",
             description: "获取缓存统计信息和状态，支持内存和文件缓存管理",
             inputSchema: {
                 type: "object",
@@ -87,10 +100,17 @@ export function getToolDefinitions() {
                         default: "stats"
                     }
                 }
+            },
+            annotations: {
+                readOnlyHint: false,
+                destructiveHint: true,
+                idempotentHint: false,
+                openWorldHint: false
             }
         },
         {
             name: "pubmed_get_details",
+            title: "Article Detail Retrieval",
             description: "获取指定PMID的完整文献信息，包括全文摘要和详细元数据",
             inputSchema: {
                 type: "object",
@@ -112,10 +132,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmids"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_extract_key_info",
+            title: "Key Information Extraction",
             description: "提取文献关键信息，优化LLM理解和处理",
             inputSchema: {
                 type: "object",
@@ -152,10 +178,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmid"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_cross_reference",
+            title: "Cross-Reference Search",
             description: "交叉引用相关文献，用于事实核查和深度分析",
             inputSchema: {
                 type: "object",
@@ -179,10 +211,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmid"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_batch_query",
+            title: "Batch Article Query",
             description: "批量查询多个PMID的详细信息，优化上下文窗口使用",
             inputSchema: {
                 type: "object",
@@ -206,10 +244,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmids"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_detect_fulltext",
+            title: "Fulltext Availability Detection",
             description: "检测文献的开放获取状态和全文可用性",
             inputSchema: {
                 type: "object",
@@ -225,10 +269,16 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmid"]
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_download_fulltext",
+            title: "Fulltext PDF Download",
             description: "下载指定文献的全文PDF（如果可用）",
             inputSchema: {
                 type: "object",
@@ -244,10 +294,17 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmid"]
+            },
+            annotations: {
+                readOnlyHint: false,
+                destructiveHint: false,
+                idempotentHint: false,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_fulltext_status",
+            title: "Fulltext Cache Status",
             description: "获取全文缓存状态和统计信息",
             inputSchema: {
                 type: "object",
@@ -263,10 +320,17 @@ export function getToolDefinitions() {
                         description: "指定PMID（仅用于list操作）"
                     }
                 }
+            },
+            annotations: {
+                readOnlyHint: false,
+                destructiveHint: true,
+                idempotentHint: false,
+                openWorldHint: false
             }
         },
         {
             name: "pubmed_batch_download",
+            title: "Batch PDF Download",
             description: "批量下载多个文献的全文PDF，支持跨平台智能下载",
             inputSchema: {
                 type: "object",
@@ -284,18 +348,31 @@ export function getToolDefinitions() {
                     }
                 },
                 required: ["pmids"]
+            },
+            annotations: {
+                readOnlyHint: false,
+                destructiveHint: false,
+                idempotentHint: false,
+                openWorldHint: true
             }
         },
         {
             name: "pubmed_system_check",
+            title: "System Environment Check",
             description: "检查系统环境和下载工具可用性",
             inputSchema: {
                 type: "object",
                 properties: {}
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: false
             }
         },
         {
             name: "pubmed_endnote_status",
+            title: "EndNote Export Status",
             description: "获取EndNote导出状态和统计信息",
             inputSchema: {
                 type: "object",
@@ -307,6 +384,12 @@ export function getToolDefinitions() {
                         default: "stats"
                     }
                 }
+            },
+            annotations: {
+                readOnlyHint: false,
+                destructiveHint: true,
+                idempotentHint: false,
+                openWorldHint: false
             }
         }
     ];

@@ -10,12 +10,13 @@ import { formatForLLM, truncateText, extractAbstractSections, extractKeyPoints }
 import { detectSystemEnvironment, getSystemRecommendations, checkDownloadTools } from '../services/system.js';
 
 export class ToolHandlers {
-    constructor({ pubmedClient, memoryCache, fileCache, fulltextService, endnoteService }) {
+    constructor({ pubmedClient, memoryCache, fileCache, fulltextService, endnoteService, apiKeyPool }) {
         this.pubmedClient = pubmedClient;
         this.memoryCache = memoryCache;
         this.fileCache = fileCache;
         this.fulltextService = fulltextService;
         this.endnoteService = endnoteService;
+        this.apiKeyPool = apiKeyPool;
     }
 
     async route(name, args) {
@@ -941,6 +942,7 @@ export class ToolHandlers {
                     text: JSON.stringify({
                         success: true,
                         system_environment: systemInfo,
+                        api_key_pool: this.apiKeyPool ? this.apiKeyPool.getStatus() : null,
                         fulltext_mode: {
                             enabled: FULLTEXT_ENABLED,
                             mode: FULLTEXT_MODE,
