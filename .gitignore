@@ -1,4 +1,5 @@
 .env
 cache/
 node_modules/
-deploy/streamable-http/.env
+docker/.env
+.cursor/

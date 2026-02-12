@@ -12,8 +12,7 @@ tests/
 
 # 文档和配置
 docs/
-demo/
-config/
+docker/
 .cursor/
 *.md
 !README.md
