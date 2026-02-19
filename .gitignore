@@ -1,3 +1,6 @@
 .env
 cache/
 node_modules/
+docker/.env
+.cursor/
+api-keys.json
