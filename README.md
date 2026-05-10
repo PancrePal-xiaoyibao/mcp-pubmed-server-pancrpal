@@ -1,7 +1,7 @@
 # PubMed MCP Server v3.0
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/mcp-pubmed-server.svg)](https://www.npmjs.com/package/mcp-pubmed-server)
+[![npm version](https://img.shields.io/npm/v/mcp-pubmed-llm-server.svg)](https://www.npmjs.com/package/mcp-pubmed-llm-server)
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-orange)](https://modelcontextprotocol.io/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
 
@@ -23,7 +23,7 @@ LLM Agent <--MCP--> PubMed MCP Server <--API--> PubMed / PMC / Unpaywall
 
 ```bash
 # npm 全局安装
-npm install -g mcp-pubmed-server
+npm install -g mcp-pubmed-llm-server
 
 # 或从源码构建
 git clone git@github.com:PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal.git
@@ -52,9 +52,9 @@ FULLTEXT_MODE=disabled              # disabled | enabled | auto
 
 ```bash
 # npm 包
-mcp-pubmed-server
+mcp-pubmed-llm-server
 # 或
-npx mcp-pubmed-server
+npx mcp-pubmed-llm-server
 
 # 源码开发
 npm run dev
@@ -119,7 +119,7 @@ curl http://localhost:8745/health
   "mcpServers": {
     "pubmed": {
       "command": "npx",
-      "args": ["-y", "mcp-pubmed-server"],
+      "args": ["-y", "mcp-pubmed-llm-server"],
       "env": {
         "PUBMED_API_KEY": "你的API密钥（可选）",
         "PUBMED_EMAIL": "你的邮箱（可选）",
