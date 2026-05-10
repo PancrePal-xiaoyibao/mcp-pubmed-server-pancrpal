@@ -1,19 +1,20 @@
 {
-  "name": "mcp-pubmed-llm-server",
-  "version": "1.0.0",
-  "description": "Enhanced PubMed MCP server with LLM-powered intelligent search and analysis",
-  "main": "src/index.js",
+  "name": "mcp-pubmed-server",
+  "version": "3.0.0",
+  "description": "PubMed MCP server — agentic biomedical literature search for LLMs",
+  "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "mcp-pubmed-llm-server": "./src/index.js"
+    "mcp-pubmed-server": "./dist/index.js"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "start:stdio": "node src/index.js --mode=stdio",
-    "start:streamableHttp": "node src/index.js --mode=streamableHttp",
-    "dev": "node --watch src/index.js",
-    "build": "echo 'No build step required'",
-    "test": "node test/test.js",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:stdio": "node dist/index.js --mode=stdio",
+    "start:http": "node dist/index.js --mode=streamableHttp",
+    "dev": "tsx --watch src/index.ts",
+    "dev:http": "tsx --watch src/index.ts --mode=streamableHttp",
+    "typecheck": "tsc --noEmit",
     "setup": "npm install && cp .env.example .env"
   },
   "keywords": [
@@ -22,26 +23,26 @@
     "llm",
     "biomedical",
     "search",
-    "research",
-    "openai"
+    "agent"
   ],
   "author": "PancrePal-xiaoyibao Team",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
-    "node-fetch": "^3.3.2",
     "dotenv": "^16.3.1",
-    "express": "^4.21.2",
-    "zod": "^3.25.0"
+    "express": "^4.21.2"
   },
   "devDependencies": {
-    "@types/node": "^20.10.0"
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "files": [
-    "src/",
+    "dist/",
     "README.md",
     "LICENSE"
   ],
@@ -51,9 +52,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal.git"
-  },
-  "bugs": {
-    "url": "https://github.com/PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal/issues"
-  },
-  "homepage": "https://github.com/PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal#readme"
+  }
 }

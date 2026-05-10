@@ -4,6 +4,6 @@ import { PubMedDataServer } from './server.js';
 
 const server = new PubMedDataServer();
 server.run().catch((error) => {
-    console.error("Fatal error in main():", error);
-    process.exit(1);
+  console.error('Fatal error:', error);
+  process.exit(1);
 });

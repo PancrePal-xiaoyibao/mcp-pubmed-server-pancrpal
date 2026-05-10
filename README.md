@@ -1,27 +1,17 @@
-```
-██████╗ ██╗   ██╗██████╗ ███╗   ███╗███████╗██████╗     ██████╗  █████╗ ████████╗ █████╗
-██╔══██╗██║   ██║██╔══██╗████╗ ████║██╔════╝██╔══██╗   ██╔════╝ ██╔══██╗╚══██╔══╝██╔══██╗
-██████╔╝██║   ██║██████╔╝██╔████╔██║█████╗  ██║  ██║   ██║  ███╗███████║   ██║   ███████║
-██╔═══╝ ██║   ██║██╔══██╗██║╚██╔╝██║██╔══╝  ██║  ██║   ██║   ██║██╔══██║   ██║   ██╔══██║
-██║     ╚██████╔╝██████╔╝██║ ╚═╝ ██║███████╗██████╔╝   ╚██████╔╝██║  ██║   ██║   ██║  ██║
-╚═╝      ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═════╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
-```
+# PubMed MCP Server v3.0
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/mcp-pubmed-llm-server.svg)](https://www.npmjs.com/package/mcp-pubmed-llm-server)
-[![npm downloads](https://img.shields.io/npm/dm/mcp-pubmed-llm-server.svg)](https://www.npmjs.com/package/mcp-pubmed-llm-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/mcp-pubmed-server.svg)](https://www.npmjs.com/package/mcp-pubmed-server)
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-orange)](https://modelcontextprotocol.io/)
-[![PubMed API](https://img.shields.io/badge/PubMed-API-blue)](https://www.ncbi.nlm.nih.gov/books/NBK25501/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
 
-# PubMed Data Server v2.0
-
-为 LLM 提供结构化 PubMed 文献数据的 MCP 服务器。专注数据提供，分析交给 LLM。
+为 LLM Agent 提供结构化 PubMed 文献数据的 MCP 服务器。**Agent 友好的响应模型**，专注数据提供，分析交给 LLM。
 
 ```
-用户客户端(LLM) ←→ MCP服务器(数据获取+结构化) ←→ PubMed API
+LLM Agent <--MCP--> PubMed MCP Server <--API--> PubMed / PMC / Unpaywall
 ```
 
-**核心能力：** 文献搜索 / 智能缓存 / OA 全文下载 / EndNote 导出（RIS + BibTeX）
+**核心能力：** 文献搜索 / 智能缓存 / OA 全文下载 / Agentic 响应模型
 
 ---
 
@@ -32,91 +22,77 @@
 ### 1. 安装
 
 ```bash
-# npm 全局安装（推荐）
-npm install -g mcp-pubmed-llm-server
+# npm 全局安装
+npm install -g mcp-pubmed-server
 
-# 或从源码安装
+# 或从源码构建
 git clone git@github.com:PancrePal-xiaoyibao/mcp-pubmed-server-pancrpal.git
-cd mcp-pubmed-server-pancrpal && npm install
+cd mcp-pubmed-server-pancrpal
+npm install && npm run build
 ```
 
-### 2. 配置 API 密钥
+### 2. 配置
 
 ```bash
 cp .env.example .env
 ```
 
-编辑 `.env`，填入配置：
+编辑 `.env`：
 
 ```env
 PUBMED_API_KEY=你的NCBI_API密钥    # 可选，https://www.ncbi.nlm.nih.gov/account/settings/
-PUBMED_EMAIL=你的邮箱地址            # 可选（建议填写）
+PUBMED_EMAIL=你的邮箱               # 可选（建议填写）
+ABSTRACT_MODE=quick                 # quick(1500字符) | deep(6000字符)
+FULLTEXT_MODE=disabled              # disabled | enabled | auto
 ```
 
-> **说明：** API Key 和 Email 均非必填。无 Key 时以匿名模式运行（限速 3 次/秒），有 Key 时提升至 10 次/秒。
-
-**多 API Key 池（可选）：** 支持多个 Key 轮询/主备/随机负载均衡，参见下方 [API Key 池配置](#api-key-池配置) 章节。
-
-可选配置：
-
-```env
-ABSTRACT_MODE=quick       # quick(1500字符) | deep(6000字符)
-FULLTEXT_MODE=disabled    # disabled | enabled | auto
-ENDNOTE_EXPORT=enabled    # enabled | disabled
-```
+> **说明：** API Key 和 Email 均非必填。无 Key 时匿名运行（3 次/秒），有 Key 时 10 次/秒。
 
 ### 3. 运行
 
 ```bash
 # npm 包
-mcp-pubmed-llm-server
+mcp-pubmed-server
 # 或
-npx mcp-pubmed-llm-server
+npx mcp-pubmed-server
 
-# 源码
-node src/index.js
+# 源码开发
+npm run dev
+
+# 源码生产
+npm run build && npm start
 ```
 
 ---
 
 ## 传输模式
 
-服务器支持两种传输模式，适用于不同场景：
-
 | 模式 | 适用场景 | 启动方式 |
 |------|----------|----------|
-| **stdio** | 本地 MCP 客户端集成 | `node src/index.js` (默认) |
-| **Streamable HTTP** | 服务端远程部署 | `node src/index.js --mode=streamableHttp` |
+| **stdio** | 本地 MCP 客户端集成 | `npm start`（默认） |
+| **Streamable HTTP** | 服务端远程部署 | `npm run start:http` |
 
 ### stdio 模式（默认）
 
-通过标准输入输出与 MCP 客户端通信，无需配置端口。
-
 ```bash
-node src/index.js --mode=stdio
+npm start
 # 或
-npm run start:stdio
+node dist/index.js --mode=stdio
 ```
 
-### Streamable HTTP 模式（服务端部署）
-
-MCP 2025-11-25 规范推荐的 HTTP 传输方式，统一的 `/mcp` 端点 + 会话管理。适用于 Cherry Studio 等远程 MCP 客户端。默认端口 `8745`。
-
-**方式一：直接运行**
+### Streamable HTTP 模式
 
 ```bash
-node src/index.js --mode=streamableHttp
+npm run start:http
 # 或
-npm run start:streamableHttp
+node dist/index.js --mode=streamableHttp
 ```
 
-**方式二：Docker 部署**
+**Docker 部署：**
 
 ```bash
 cd docker
-cp .env.example .env
-# 编辑 .env，填入 PUBMED_API_KEY 和 PUBMED_EMAIL（均为可选）
-
+cp .env.example .env   # 编辑填入配置
 docker compose up -d --build
 ```
 
@@ -127,46 +103,26 @@ curl http://localhost:8745/health
 ```
 
 **端点：**
-- `POST /mcp` — JSON-RPC（首次必须为 `initialize`，返回 `Mcp-Session-Id`）
-- `GET /mcp` — 服务器事件流（带 `Mcp-Session-Id`）
+- `POST /mcp` — MCP 协议消息
+- `GET /mcp` — SSE 事件流
 - `DELETE /mcp` — 关闭会话
 - `GET /health` — 健康检查
-
-**反向代理（Nginx 示例）：**
-```nginx
-location / {
-    proxy_pass http://127.0.0.1:8745;
-    proxy_http_version 1.1;
-    proxy_set_header Host $host;
-    proxy_read_timeout 3600;
-    proxy_send_timeout 3600;
-    proxy_buffering off;              # 必须禁用缓冲
-    add_header X-Accel-Buffering no;
-}
-```
-
-**生产环境建议：**
-- 使用进程管理器（PM2、systemd）确保持续运行
-- 配置 HTTPS 反向代理
-- 设置防火墙规则，仅开放必要端口
 
 ---
 
 ## MCP 客户端配置
 
-### Cline / Claude Desktop / Claude Code
-
-**stdio 模式（本地运行）：**
+### Claude Desktop / Claude Code / Cline
 
 ```json
 {
   "mcpServers": {
-    "pubmed-data-server": {
+    "pubmed": {
       "command": "npx",
-      "args": ["-y", "mcp-pubmed-llm-server"],
+      "args": ["-y", "mcp-pubmed-server"],
       "env": {
         "PUBMED_API_KEY": "你的API密钥（可选）",
-        "PUBMED_EMAIL": "你的邮箱地址（可选）",
+        "PUBMED_EMAIL": "你的邮箱（可选）",
         "ABSTRACT_MODE": "deep",
         "FULLTEXT_MODE": "enabled"
       }
@@ -175,178 +131,133 @@ location / {
 }
 ```
 
-> **说明：** `PUBMED_API_KEY` 和 `PUBMED_EMAIL` 均为可选。不填则以匿名模式运行（限速 3 次/秒），填写后提升至 10 次/秒。如需多 Key 池，参见 [API Key 池配置](#api-key-池配置)。
-
 配置文件位置：
-- **Cline**: VS Code 设置中的 MCP Servers 配置
-- **Claude Desktop**: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) 或 `%APPDATA%/Claude/claude_desktop_config.json` (Windows)
+- **Claude Desktop**: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 - **Claude Code**: `~/.claude/config.json`
-
-> 也可使用 `"command": "mcp-pubmed-llm-server"`（全局安装后）或 `"command": "node", "args": ["/path/to/src/index.js"]`（源码安装）。
+- **Cline**: VS Code 设置中的 MCP Servers
 
 ### Cherry Studio
 
-**stdio 模式：**
-```json
-{
-  "mcpServers": {
-    "pubmed-data-server": {
-      "name": "pubmed-data-server",
-      "type": "stdio",
-      "isActive": true,
-      "command": "npx",
-      "args": ["-y", "mcp-pubmed-llm-server"],
-      "env": {
-        "PUBMED_API_KEY": "你的API密钥（可选）",
-        "PUBMED_EMAIL": "你的邮箱地址（可选）"
-      }
-    }
-  }
-}
-```
+**stdio 模式：** 同上配置，`type` 设为 `stdio`
 
-**streamableHttp 模式（远程部署）：**
-- type: `streamableHttp`
-- baseUrl: `http://<服务器IP>:8745/mcp`
-
-> Cherry Studio 不支持 `cwd` 参数。Windows 路径使用正斜杠 `/` 或双反斜杠 `\\`。
+**streamableHttp 模式：** `type` 设为 `streamableHttp`，`baseUrl` 设为 `http://<服务器IP>:8745/mcp`
 
 ---
 
-## 工具列表
-
-共 13 个 MCP 工具：
+## 工具列表（8 个）
 
 ### 文献搜索
 
 | 工具 | 说明 | 关键参数 |
 |------|------|----------|
-| `pubmed_search` | 高级文献搜索 | `query`, `max_results`, `days_back`, `sort_by` |
-| `pubmed_quick_search` | 快速搜索（精简结果） | `query`, `max_results` |
-| `pubmed_get_details` | 获取 PMID 完整信息 | `pmids`, `include_full_text` |
-| `pubmed_extract_key_info` | 提取论文关键信息 | `pmid`, `extract_sections` |
-| `pubmed_cross_reference` | 交叉引用分析 | `pmid`, `reference_type` |
-| `pubmed_batch_query` | 批量查询（最多 20 个 PMID） | `pmids`, `query_format` |
+| `pubmed_search` | 文献搜索，支持 Boolean/MeSH | `query`, `max_results`, `days_back`, `sort_by`, `format` |
+| `pubmed_get_details` | 获取 PMID 完整信息（单个或批量） | `pmids`, `format` |
+| `pubmed_extract_info` | 提取论文关键信息段落 | `pmid`, `sections` |
+| `pubmed_find_related` | 查找相关/综述文献 | `pmid`, `type`, `max_results` |
 
 ### 缓存管理
 
 | 工具 | 说明 | 关键参数 |
 |------|------|----------|
-| `pubmed_cache_info` | 缓存统计和管理 | `action`: stats / clear / clean |
+| `pubmed_manage_cache` | 缓存统计、清理、清空 | `action`, `target` |
 
 ### 全文下载（需 `FULLTEXT_MODE=enabled`）
 
 | 工具 | 说明 | 关键参数 |
 |------|------|----------|
 | `pubmed_detect_fulltext` | 检测 OA 状态和全文可用性 | `pmid`, `auto_download` |
-| `pubmed_download_fulltext` | 下载单篇全文 PDF | `pmid`, `force_download` |
-| `pubmed_fulltext_status` | 全文缓存管理 | `action`: stats / list / clean / clear |
-| `pubmed_batch_download` | 批量下载（最多 10 篇） | `pmids`, `human_like` |
-| `pubmed_system_check` | 系统环境和下载工具检测 | 无 |
+| `pubmed_download_fulltext` | 下载全文 PDF（单篇或批量） | `pmids`, `force` |
+| `pubmed_system_status` | 系统环境和 API Key 状态检测 | 无 |
 
-### EndNote 导出（需 `ENDNOTE_EXPORT=enabled`）
+---
 
-| 工具 | 说明 | 关键参数 |
-|------|------|----------|
-| `pubmed_endnote_status` | 导出管理和统计 | `action`: stats / list / clean / clear |
+## Agentic 响应模型
+
+每个工具返回统一的 `AgentResponse<T>` 结构，为 AI Agent 优化：
+
+```json
+{
+  "status": "success",
+  "data": { ... },
+  "metadata": {
+    "tool": "pubmed_search",
+    "executionMs": 1234,
+    "timestamp": "2025-01-01T00:00:00.000Z",
+    "pagination": { "total": 500, "returned": 20, "hasMore": true }
+  },
+  "suggestions": [
+    {
+      "tool": "pubmed_get_details",
+      "reason": "Get full metadata for specific articles of interest.",
+      "parameters": { "pmids": ["12345678"] }
+    }
+  ]
+}
+```
+
+- **`status`** — 成功/错误状态
+- **`data`** — 类型化的返回数据
+- **`metadata`** — 执行上下文（耗时、分页、缓存状态）
+- **`suggestions`** — Agent 下一步操作建议（工具名 + 原因 + 参数）
 
 ---
 
 ## API Key 池配置
 
-支持多个 NCBI API Key 的轮询、主备切换和随机负载均衡，提高并发能力和容错性。
-
-### 配置方式
-
-**方式一：`api-keys.json` 文件（多 Key，推荐）**
+支持多个 NCBI API Key 轮询/主备/随机负载均衡。
 
 在项目根目录创建 `api-keys.json`（参见 `api-keys.json.example`）：
 
 ```json
 {
   "keys": [
-    {
-      "api_key": "你的第一个NCBI_API密钥",
-      "email": "user1@example.com"
-    },
-    {
-      "api_key": "你的第二个NCBI_API密钥",
-      "email": "user2@example.com"
-    }
+    { "api_key": "KEY_1", "email": "user1@example.com" },
+    { "api_key": "KEY_2", "email": "user2@example.com" }
   ],
   "strategy": "round-robin"
 }
 ```
 
-**方式二：环境变量（单 Key，向后兼容）**
-
-```env
-PUBMED_API_KEY=你的NCBI_API密钥
-PUBMED_EMAIL=你的邮箱地址
-```
-
-**方式三：无 Key（匿名模式）**
-
-不配置任何 Key，以匿名模式运行（限速 3 次/秒）。
-
-> **优先级：** `api-keys.json` > 环境变量 > 匿名模式
-
-### Key 选择策略
-
 | 策略 | 说明 |
 |------|------|
-| `round-robin` | 轮询（默认），每次请求依次选用下一个 Key |
-| `failover` | 主备切换，优先使用第一个 Key，失败时切换到下一个 |
-| `random` | 随机选择，均匀分散请求 |
+| `round-robin` | 轮询（默认） |
+| `failover` | 主备切换 |
+| `random` | 随机负载均衡 |
 
-### 健康管理
-
-- 连续 3 次失败自动标记为不可用
-- 60 秒冷却后自动恢复
-- 所有 Key 不可用时强制恢复最早失败的 Key
-- 通过 `pubmed_system_check` 工具可查看 Key 池状态
+> **优先级：** `api-keys.json` > 环境变量 > 匿名模式
+>
+> **健康管理：** 连续 3 次失败自动下线，60 秒冷却后恢复
 
 ---
 
 ## 项目结构
 
 ```
-mcp-pubmed-server/
-├── src/
-│   ├── index.js                # 入口点
-│   ├── config.js               # 配置常量
-│   ├── server.js               # 主编排器
-│   ├── api/
-│   │   ├── pubmed-client.js    # PubMed API 客户端
-│   │   └── key-pool.js         # API Key 号池管理器
-│   ├── cache/
-│   │   ├── memory-cache.js     # 内存 LRU 缓存
-│   │   └── file-cache.js       # 文件持久化缓存
-│   ├── services/
-│   │   ├── fulltext.js         # OA 检测 + PDF 下载
-│   │   ├── endnote.js          # RIS / BibTeX 导出
-│   │   └── system.js           # 系统环境检测
-│   ├── tools/
-│   │   ├── definitions.js      # 工具 schema 定义
-│   │   └── handlers.js         # 工具调用路由
-│   ├── transport/
-│   │   ├── stdio.js            # stdio 传输
-│   │   └── streamable-http.js  # Streamable HTTP 传输
-│   └── utils/
-│       └── formatter.js        # LLM 格式化
-├── docker/                     # Docker 部署
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   └── .env.example
-├── docs/
-│   ├── FULLTEXT_SMART_DOWNLOAD.md
-│   ├── ENDNOTE_EXPORT.md
-│   └── GITHUB_ACTIONS_PUBLISH.md
-├── api-keys.json.example       # 多 Key 池配置模板
-├── .env.example
-├── package.json
-├── LICENSE
-└── README.md
+src/
+├── index.ts                  # 入口点
+├── config.ts                 # 配置常量 + 环境变量
+├── server.ts                 # MCP Server 编排器
+├── types/                    # TypeScript 类型定义
+│   ├── article.ts            # Article, SearchResult, OAInfo
+│   ├── responses.ts          # AgentResponse<T>, makeResponse/makeError
+│   └── index.ts
+├── api/
+│   ├── pubmed-client.ts      # PubMed EUtilities 客户端
+│   └── key-pool.ts           # API Key 号池（轮询/主备/随机）
+├── cache/
+│   ├── memory-cache.ts       # 内存 LRU 缓存（5 分钟，100 条上限）
+│   └── file-cache.ts         # 文件持久化缓存（30 天过期）
+├── services/
+│   ├── fulltext.ts           # OA 检测 + PDF 下载
+│   └── system.ts             # 系统环境检测
+├── tools/
+│   ├── definitions.ts        # MCP 工具 Schema（8 个工具）
+│   └── handlers.ts           # 工具路由 + 处理逻辑
+├── transport/
+│   ├── stdio.ts              # stdio 传输
+│   └── streamable-http.ts    # HTTP 传输（Express）
+└── utils/
+    └── formatter.ts          # 文章格式化（compact/standard/detailed）
 ```
 
 ---
@@ -355,27 +266,14 @@ mcp-pubmed-server/
 
 | 问题 | 解决方案 |
 |------|----------|
-| 找不到 `@modelcontextprotocol/sdk` | `npm install -g mcp-pubmed-llm-server` 或 `npm install` |
-| PubMed API 调用失败 | 检查网络连接；有 Key 时确认 Key 有效，无 Key 时等待速率限制重置（3 次/秒） |
-| 环境变量未生效 | 确认 `.env` 文件存在且变量名正确 |
-| Key 池全部不可用 | 检查 `api-keys.json` 中的 Key 是否有效；60 秒后会自动恢复 |
-| 端口被占用 | `lsof -i :8745` (macOS/Linux) 或 `netstat -ano \| findstr :8745` (Windows)，或改用 `PORT=其他端口` 启动 |
-| Docker 健康检查失败 | 检查 `.env` 配置，查看 `docker logs pubmed-mcp` |
+| 依赖缺失 | `npm install && npm run build` |
+| PubMed API 调用失败 | 检查网络；有 Key 时确认 Key 有效 |
+| Key 池全部不可用 | 检查 `api-keys.json` 中 Key 是否有效，60 秒后自动恢复 |
+| 端口被占用 | `lsof -i :8745` 查看，或设置 `PORT=其他端口` |
+| Docker 健康检查失败 | 检查 `.env` 配置，`docker logs pubmed-mcp` |
 
 ---
 
-## npm 包
-
-- **包名**: [mcp-pubmed-llm-server](https://www.npmjs.com/package/mcp-pubmed-llm-server)
-- **安装**: `npm install -g mcp-pubmed-llm-server`
-- **使用**: `npx mcp-pubmed-llm-server` 或 `mcp-pubmed-llm-server`
-
-## 详细文档
-
-- [全文下载与智能下载系统](docs/FULLTEXT_SMART_DOWNLOAD.md)
-- [EndNote 导出功能](docs/ENDNOTE_EXPORT.md)
-- [GitHub Actions 自动发布](docs/GITHUB_ACTIONS_PUBLISH.md)
-
 ## 许可证
 
-Apache License 2.0
+MIT License

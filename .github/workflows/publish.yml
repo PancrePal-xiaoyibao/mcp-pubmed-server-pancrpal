@@ -1,84 +1,63 @@
 name: Publish to npm
 
 on:
-  # Git Tag 触发自动发布 (格式: v1.0.1, v1.1.0, v2.0.0)
   push:
     tags:
       - 'v*'
-  
-  # 手动触发发布（用于重试或手动发布）
+
   workflow_dispatch:
     inputs:
       version:
-        description: '版本号 (例如: 1.0.1, 1.1.0, 2.0.0)'
+        description: 'Version (e.g. 3.0.0)'
         required: true
         type: string
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: 检出代码
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # 获取完整历史记录以检测标签
-      
-      - name: 设置 Node.js
+          fetch-depth: 0
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      
-      - name: 检测版本号
+
+      - name: Detect version
         id: version
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            # 手动触发：使用输入的版本号
             VERSION="${{ github.event.inputs.version }}"
-            echo "手动触发，使用输入的版本号: $VERSION"
           else
-            # Tag 触发：从 Git Tag 提取版本号
             TAG_NAME="${GITHUB_REF#refs/tags/}"
-            # 移除 'v' 前缀（如果存在）
             VERSION="${TAG_NAME#v}"
-            echo "检测到 Git Tag: $TAG_NAME"
-            echo "提取版本号: $VERSION"
           fi
-          
-          # 验证版本号格式 (x.y.z)
+
           if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
-            echo "错误: 版本号格式无效: $VERSION"
-            echo "版本号必须是 x.y.z 格式 (例如: 1.0.1)"
+            echo "Invalid version format: $VERSION"
             exit 1
           fi
-          
-          echo "最终版本号: $VERSION"
+
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-      
-      - name: 更新 package.json 版本号
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          npm version $VERSION --no-git-tag-version
-          echo "已更新 package.json 版本号为: $VERSION"
-      
-      - name: 安装依赖
+
+      - name: Update package.json version
+        run: npm version ${{ steps.version.outputs.version }} --no-git-tag-version
+
+      - name: Install dependencies
         run: npm ci
-      
-      - name: 运行测试 (如果存在)
-        run: |
-          if npm run test 2>/dev/null; then
-            echo "测试通过"
-          else
-            echo "跳过测试 (测试脚本不存在或失败)"
-          fi
-        continue-on-error: true
-      
-      - name: 发布到 npm
+
+      - name: Build
+        run: npm run build
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "开始发布版本 ${{ steps.version.outputs.version }} 到 npm..."
-          npm publish
-          echo "成功发布版本 ${{ steps.version.outputs.version }} 到 npm"
-
+        run: npm publish
