@@ -108,6 +108,8 @@ curl http://localhost:8745/health
 - `DELETE /mcp` — 关闭会话
 - `GET /health` — 健康检查
 
+> ⚠️ **HTTP 模式默认没有认证，CORS 为 `*`，且监听 `0.0.0.0`。** 只要能访问到该端口就能完全使用本服务（消耗你的 NCBI Key 配额、操作缓存）。仅在本机使用时无碍；要暴露给远程客户端，请先看 [远程部署：安全加固与连接排查](docs/remote-mcp-deployment.md)。
+
 ---
 
 ## MCP 客户端配置
@@ -271,6 +273,10 @@ src/
 | Key 池全部不可用 | 检查 `api-keys.json` 中 Key 是否有效，60 秒后自动恢复 |
 | 端口被占用 | `lsof -i :8745` 查看，或设置 `PORT=其他端口` |
 | Docker 健康检查失败 | 检查 `.env` 配置，`docker logs pubmed-mcp` |
+| 以为开了 HTTP 但 `/health` 连不上 | 无法识别的 `--mode=` / `MCP_TRANSPORT` 会**静默回落 stdio**。看启动日志最后一行是 `running on Streamable HTTP` 还是 `running on stdio` |
+| 客户端报 `Not Acceptable` | 请求的 `Accept` 头必须同时含 `application/json` 和 `text/event-stream` |
+| 客户端报 `400 No active session` | 除 `initialize` 外每个请求都要带 `MCP-Session-Id` 头 |
+| 远程客户端连上但无响应 | 反向代理未关闭缓冲，SSE 被卡住。见 [远程部署文档](docs/remote-mcp-deployment.md#1-️-暴露到本机之外前先读这节) |
 
 ---
 
